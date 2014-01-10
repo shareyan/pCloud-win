@@ -88,3 +88,7 @@ a.backHome:hover{
 	text-decoration:none;
 	color:gray;
 }
+
+.jumbotron>p>a:hover{
+	background-color:wheat;
+}

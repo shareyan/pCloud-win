@@ -144,10 +144,11 @@ exports.superUserReg = function(app){
 			if(data.message == 'OK'){
 				app.data.dataBase.sid = data.sid;
 			}else{
-				return app.JSON({
-					message:'Error',
-					reason:'noNetwork',
-				});
+				var page = app.getTemplate('noNetWork.html');
+				var context = {
+					content:page,
+				}
+				return app.render('base.html',context);
 			}
 			
 			if(app.req.method.toLowerCase() == 'post'){
@@ -183,6 +184,11 @@ exports.superUserReg = function(app){
 							//name available,get a code
 							var serverCode = data.code;
 							var myCode = new Code(app);
+							var codes = myCode.objects.all();
+							//delete old codes
+							codes.forEach(function(oldCode){
+								oldCode.objects.delete();
+							});
 							myCode.code = serverCode;
 							myCode.name = username;
 							myCode.objects.save();

@@ -19,7 +19,6 @@ module.exports = function(app){
 	app.get('/admin',permissions.Permissions);
 	app.get('/shutdown',system.shutdown);
 	app.get('/del',system.delFile);
-	app.get('/test',test);
 	app.view();
 }
 

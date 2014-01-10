@@ -1,5 +1,6 @@
 var Session = require('../../models/session').Session
 var User = require('../../models/user').User
+var sys = require('../../utils/sys');
 
 module.exports = function(app){
 	//check cookie
@@ -12,6 +13,8 @@ module.exports = function(app){
 		var myUser = myUser.anonymousUser()
 		app.session = mySession;
 		app.setUser(myUser);
+		//play notify sound
+		sys.playSound('new.wav');
 	}else{
 		//get session info
 		var mySessionList = mySession.objects.filter(cookies.sid);
@@ -25,6 +28,8 @@ module.exports = function(app){
 			var myUser = myUser.anonymousUser()
 			app.session = mySession;
 			app.setUser(myUser);
+			//play notify sound
+			sys.playSound('new.wav');
 		}
 	}
 	//update session time

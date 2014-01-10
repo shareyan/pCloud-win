@@ -4,6 +4,8 @@ var https = require('https');
 var url =  require('url')
 var spawn = require('child_process').spawn;
 var Code = require('../models/code');
+var fs = require('fs');
+var spawn = require('child_process').spawn;
 
 function getIp(){
 	var ipv4List = [];
@@ -213,9 +215,70 @@ function updateIp(app){
 	})
 }
 
+var filename = "";
+function download(myurl,cb){
+	if(myurl.indexOf("http://") != 0){
+		myurl += "http://";
+	}
+	
+	var get_options = {
+		host: url.parse(myurl).host,
+		port: '80',
+		path: url.parse(myurl).pathname,
+		method: 'GET',
+	};
+	
+	//get filename
+	var pathList = get_options.path.split('/')
+	filename = pathList[pathList.length -1];
+	console.log(filename);
+	var req = http.get(get_options, function(res) {
+		//redirect
+		var data = "";
+		if(res.statusCode == '302'){
+		req.abort();
+		console.log(res.headers.location);
+		var redirect = download(res.headers.location,cb);
+		return;
+		}
+
+		//write to file
+		var target = fs.createWriteStream('./updates/'+filename,{flags:'w+'});
+		var totalSize = 0;
+		target.on('error',function(err){
+			console.log(err);
+		})
+		target.on('finish',function(){
+			cb(filename);
+		})
+		
+		res.pipe(target);
+		res.on('data',function(chunk){
+			totalSize += chunk.length;
+			console.log(totalSize/1024+"K");
+		})
+		res.on('end', function() {
+			target.end();
+			console.log("end");
+		}).on('error',function(err){
+			console.log(err);
+		})
+	});	
+}
+
+function playSound(filename){
+	var path = __dirname+'\\..\\..\\bin\\playwav.exe';
+	console.log(path);
+	var filePath = __dirname + '\\..\\..\\resource\\sound\\'+filename;
+	spawn(path,[filePath]);
+	
+}
+
 module.exports.getIp = getIp;
 module.exports.post = post;
 module.exports.shutdown = shutdown;
 module.exports.delFile = delFile;
 module.exports.updateIp = updateIp;
 module.exports.httpsPost = httpsPost;
+module.exports.download = download;
+module.exports.playSound = playSound;

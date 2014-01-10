@@ -21,11 +21,11 @@ var dataBase = {};
 var templates = {};
 var port = '';
 
-
 //load data to memory
 var myDataBase = new loadFiles('./models/db');
 myDataBase.load(function(data){
 	try{
+		data = codes.decode(data);
 		dataBase = JSON.parse(data);
 	}catch(err){
 		dataBase = {
@@ -73,6 +73,7 @@ myDataBase.load(function(data){
 					//
 					socket.order = function(cmd){
 						this.write(cmd+'\0');
+						console.log("send:"+cmd);
 					}
 					//fake app
 					var data = {
@@ -89,6 +90,7 @@ myDataBase.load(function(data){
 					if(command == 'getPort')order.getPort(socket,myapp);
 					if(command == 'resetPwd')order.resetPwd(socket,myapp);
 					if(command == 'delSuperUser')order.delSuperUser(socket,myapp);
+					if(command == 'checkUpdate')order.checkUpdate(socket,myapp);
 				});
 				
 				socket.on('error',function(err){
@@ -159,7 +161,11 @@ function onreq(req,res){
 
 function exit(){
 	console.log('saving data before quiting');
+	//delete all sessions
+	dataBase.sessionList = [];
 	var data = JSON.stringify(dataBase);
+	//encode before save
+	data = codes.encode(data);
 	fs.writeFile('./models/db',data,'utf8',function(err){
 		if(err)console.log(err);
 		fs.writeFile('../../logs/log.txt',0,'utf8',function(err){

@@ -2,6 +2,17 @@
 <html>
 	<head>
 		<title>pCloud 你的私有云</title>
+		<link rel="icon" href="/static/img/logo.jpg" type="image/x-icon" />
+		<link rel="shortcut icon" href="/static/img/logo.jpg" type="image/x-icon" />
+		
+		<link rel="apple-touch-icon" sizes="114×114" href="/static/img/touch-icon-114×114.png" />
+		<link rel="apple-touch-icon" sizes="72×72" href="/static/img/touch-icon-72×72.png" />
+		<link rel="apple-touch-icon" href="/static/img/touch-icon-iphone.png" />
+		
+		<link rel="apple-touch-icon-precomposed" sizes="114×114″ href="/static/img/apple-touch-icon-114×114-precomposed.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="72×72″ href="/static/img/apple-touch-icon-72×72-precomposed.png" />
+		<link rel="apple-touch-icon-precomposed" href="/static/img/touch-icon-iphone-precomposed.png" />
+		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<script src='/static/js/jquery-1.10.2.min.js'></script>
 		<script src='/static/js/juicer.js'></script>
@@ -12,6 +23,7 @@
 		<link rel='stylesheet' href='/static/css/style.css'>
 		<script src='/static/js/bootstrap-3.0.3-dist/dist/js/bootstrap.min.js'></script>
 		<script src='/static/js/Stashy/Stashy.min.js'></script>
+		<script src='/static/js/thickbox.js'></script>
 	</head>
 	<body>
 		<div style='width:100%;height:40px;background-color:black;position:fixed;top:0px;' >
@@ -66,7 +78,23 @@
 		<div style='margin-bottom:50px;'></div>
 			{>content}
 		<div class='domainName'></div>
+		<div class='qrcode hide' style='position:relative;width:100%;text-align:center;'>
+			<img style='width:430px;height:430px;margin:0 auto;' src='/static/img/qrcode.jpg'/>
+		</div>
 		<script>
+			function showqrcode(){
+				if($('.qrcode').hasClass('hide')){
+					$('.qrcode').removeClass('hide');
+				}else{
+					$('.qrcode').addClass('hide');
+				}
+				
+			}
+			
+			$('.qrcode').on('click',function(){
+				$('.qrcode').addClass('hide');
+			})
+			
 			function myNotify(title,content){
 				Stashy.Notify({
 					title : title,
@@ -107,7 +135,7 @@
 					if(data.message == 'OK'){
 						var path = "shareyan.cn/cloud/"+data.name;
 						var ipv6Path = "shareyan.com/cloud/"+data.name;
-						$('.domainName').html("你可以在浏览器输入<a class='backHome' href='#'>"+path+"</a>来访问你的电脑.或者输入<a href='#' class='backHome'>"+ipv6Path+"</a>来通过ipv6访问自己的电脑");
+						$('.domainName').html("你可以在浏览器输入<a class='backHome' href='#'>"+path+"</a>来访问你的电脑.或者输入<a href='#' class='backHome'>"+ipv6Path+"</a>来通过ipv6访问自己的电脑<br>扫描二维码关注我们的微信<a href='#' onclick='showqrcode();return false;'><img style='width:32px;height:32px;' src='/static/img/qrcode.jpg'/></a>");
 					}
 					
 				})
