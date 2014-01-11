@@ -1,0 +1,55 @@
+var connect = require('connect');
+var weibo = require('weibo');
+
+/**
+ * init weibo api settings
+ */
+
+weibo.init('weibo', '1351659465', '951b0fb3498359216cce06ae24df24dc');
+weibo.init('tqq', '$appkey', '$secret');
+weibo.init('github', '$ClientID', '$ClientSecret');
+
+/**
+ * Create a web application.
+ */
+
+var app = connect(
+  connect.query(),
+  connect.cookieParser('oh year a cookie secret'),
+  connect.session({ secret: "oh year a secret" }),
+  // using weibo.oauth middleware for use login
+  // will auto save user in req.session.oauthUser
+  weibo.oauth({
+    loginPath: '/login',
+    logoutPath: '/logout',
+    blogtypeField: 'type',
+    afterLogin: function (req, res, callback) {
+      console.log(req.session.oauthUser.screen_name, 'login success');
+      process.nextTick(callback);
+    },
+    beforeLogout: function (req, res, callback) {
+      console.log(req.session.oauthUser.screen_name, 'loging out');
+      process.nextTick(callback);
+    }
+  }),
+  connect.errorHandler({ stack: true, dump: true })
+);
+
+app.use('/', function (req, res, next) {
+  var user = req.session.oauthUser;
+  res.writeHeader(200, { 'Content-Type': 'text/html' });
+  if (!user) {
+    res.end('Login with <a href="/login?type=weibo">Weibo</a> | \
+      <a href="/login?type=tqq">QQ</a> | \
+      <a href="/login?type=github">Github</a>');
+    return;
+  }
+  res.end('Hello, <img src="' + user.profile_image_url + '" />\
+    <a href="' + user.t_url +
+    '" target="_blank">@' + user.screen_name + '</a>. ' +
+    '<a href="/logout">Logout</a>');
+});
+
+app.listen(8088);
+console.log('Server start on http://localhost:80/');
+

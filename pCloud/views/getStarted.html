@@ -1,0 +1,220 @@
+<style>
+.bs-sidenav {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-shadow: 0 1px 0 #fff;
+	background-color: #f7f5fa;
+	border-radius: 5px;
+}
+
+.bs-sidenav>li>a{
+	color:gray;
+}
+
+li>.nav>li>a{
+	font-size:small;
+	color:gray;
+	padding-left:40px;
+}
+
+li>.nav{
+	display:none;
+}
+
+li.active>.nav{
+	display:block;
+}
+
+.doc-img{
+	display:table;
+	text-align:center;
+}
+
+.doc-img>img{
+	display:block;
+	margin:20px 0px 5px;
+}
+.doc-img>span{
+	display:block;
+	width: 100%;
+	text-align: center;
+	font-size: small;
+	color: gray;
+	padding: 0px 0px 10px;
+}
+
+ul.doc{
+	margin: 10px 0px 10px 20px;
+}
+
+/*
+.bs-sidebar.affix {
+	position: static;
+}
+
+@media(min-width: 1200px){
+	.bs-sidebar.affix-bottom, .bs-sidebar.affix {
+		width: 263px;
+	}
+}
+
+@media(min-width: 992px){
+	.bs-sidebar.affix {
+		position: fixed;
+		top: 80px;
+	}
+	.bs-sidebar.affix, .bs-sidebar.affix-bottom {
+		width: 213px;
+	}
+}
+*/
+
+.affix-top{
+	position:static;
+}
+
+.affix{
+	position:static;
+}
+
+@media(min-width: 992px){
+	.affix-top{
+		position:static;
+	}
+	
+	.affix{
+		position:fixed;
+		top:80px;
+		width: 213px;
+	}
+}
+
+ul{
+	list-style:none;
+}
+ul.doc>li{
+	padding:5px;
+}
+</style>
+<div class='container'>
+	<div class="row">
+		<div class="col-md-3">
+			<div class="bs-sidebar hidden-print" data-spy="affix" data-offset-top="200" role="complementary">
+				<ul class="nav bs-sidenav">
+					<li class="active">
+						<a href="#overview">概览</a>
+					</li>
+					<li>
+						<a href="#basicUsage">玩法</a>
+						<ul class="nav " >
+							<li><a href="#basicUsage-video">在线视频播放</a></li>
+							<li><a href='#basicUsage-usb'>超高速优盘</a></li>
+							<li><a href='#basicUsage-share'>与朋友分享</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#install" >安装</a>
+					</li>
+					<li><a href='#start'>开始使用</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-9" role="main">
+			<div class="bs-docs-section">
+				<div class="page-header">
+					<h1 id="overview">概览</h1>
+				</div>
+				<p class="lead">开始把你的电脑变成你的私有云吧。pCloud使用起来相当简单，安装完成之后只要简单的设置就可以使用了。</p>
+			</div>
+			<div class='bs-docs-section'>
+				<h1 id='basicUsage'>玩法</h1>
+				<p>
+					pCloud在生活中会有各种不同的应用方法。
+					<h4>在线看视频</h4>
+					手机的屏幕越来越大，平板用来看视频再好也不过了。但是一般在线看要受到网速的限制，想要流畅就必须接受很差的画质。视频文件在手机和电脑间来回复制又过于麻烦。现在有了pCloud，你可以轻松的在线看视频了。只要在手机上点击你所共享的视频就可以直接在线播放。
+					<div class='doc-img'>
+						<img class='img-thumbnail' src='/static/img/docs/movie-blue-ray.png'>
+						<span>蓝光视频流畅播放</span>
+					</div>
+					<div class='doc-img'>
+						<img class='img-thumbnail' src='/static/img/docs/movie-1080.png'>
+						<span>1080P视频在线播放效果</span>
+					</div>
+					<h4>超高速优盘</h4>
+					在局域网环境中，pCloud完全可以取代优盘。如果采用有线网络连接，百兆带宽网络理论速度能够达到12M每秒(一般网络都是百兆带宽的)。如果是千兆网络速度还会更高。还在用优盘做文件传输工具吗，快用pCloud吧。<br>
+					<br>
+					什么是局域网环境？<br>
+					如果你在学校，公司，或者家中上网，那么一般你所在的网络环境就是一个局域网。局域网就是一个局域的网络，这个网络通过路由器连接到外部的互联网。你办理的上网业务的带宽指的是由路由器连接到互联网的带宽。但是局域网内的带宽是由路由器的网卡和电脑的网卡带宽决定的。这个带宽一般是100M。所以可能你办理的网络带宽只有4M，但是在局域网内你仍然可以享受到100M的速度。
+					局域网具有一定的范围，比如学校的局域网一般只能在学校内使用。不过只要你在学校的网络中你都可以访问到你的文件。pCloud非常适合公司，学校作为ftp的一种替代方案来使用。
+					<br>
+					<h4>与朋友分享</h4>
+					想要和朋友分享你的资源怎么办？还在用优盘，用网盘吗？不，你有更好的选择 ——pCloud。只要把文件的地址复制给你的朋友，那么他就可以直接下载这个资源。比如你的ip是192.168.1.100，你注册的地址是shareyan.cn/cloud/user1，你要共享的文件的路径是192.168.1.100/static/movie.mkv。那么你只要把路径中的ip更换成自己的地址就可以了,更改后的地址是shareyan.cn/cloud/user1/static/movie.mkv。如果是电影的话就可以不用下载直接在线播放。
+				</p>
+			</div>
+			<div class="bs-docs-section">
+				<div class="page-header">
+					<h1 id="install">安装</h1>
+				</div>
+				<p class="lead">
+					<ul class='doc'>
+						<li>				1.解压后点击pCloud文件夹内的install.exe，等待安装完成。如果出现缺少dll错误，请安装env文件夹内的vcredist_x86.exe后重试。</li>
+						<li>2. 安装完成后点击pCloud文件夹内的pCloud.py启动程序。程序成功启动后会提示在浏览器输入相应的ip，输入后即可访问本软件 </li>
+						<li>3.如果忘记管理员密码，可以点击pCloud文件夹内的ResetSuperUser.py根据提示重置管理员</li>
+						<li>4.如果想要恢复最初设置，再次点击install.exe即可</li>
+					</ul>
+				</p>
+			</div>
+			<div class='bs-docs-section'>
+				<div class='page-header'>
+					<h1 id='start'>开始使用</h1>
+				</div>
+				<h4>第一次运行</h4>
+				<p>
+					安装完成后点击pCloud.py，若出现下图的结果，则说明程序已经正常启动了图片
+					当然ip每个人都是不一样的。在浏览器输入对应的ip就可以访问了
+					<div class='doc-img'>
+						<img class='img-thumbnail' src='/static/img/docs/first-start.png'>
+						<span>第一次启动的结果</span>
+					</div>
+				</p>
+				<h4>退出程序</h4>
+				<p>
+					退出程序时直接关闭窗口，默认会继续在后台共享文件，这时候无法打开网页，但是文件链接仍然有效。想要彻底关闭程序，请先按Ctrl+C后再关闭窗口。
+				</p>
+				<h4>第一次登录</h4>
+				<p>
+					第一次通过浏览器访问会要求注册管理员账号。如下图所示
+					<div class='doc-img'>
+						<img class='img-thumbnail' src='/static/img/docs/reg-superuser.png'>
+						<span>第一次登录要求注册管理员</span>
+					</div>
+					注册完成之后你会获得一个地址。以后可以通过这个地址方便的访问自己的电脑。注意第一次使用需要连接网络。<br>
+					注册完成之后点击登录，会跳转到登录界面。之后你就可以用刚才注册的信息登录了。登录完成之后会跳转到主界面。如下图所示
+					<div class='doc-img'>
+						<img class='img-thumbnail' src='/static/img/docs/index-first.png'>
+						<span>初次登录的主界面</span>
+					</div>
+					这时点击添加就可以添加共享的文件夹了。注意最下面的链接就是你的电脑的地址，这个一旦注册就不会改变，你可以在任何地方通过这个链接访问你的电脑。
+					点击添加后会跳转到如下页面
+					<div class='doc-img'>
+						<img class='img-thumbnail' src='/static/img/docs/files-setFolder-2.png'>
+						<span>添加共享文件夹</span>
+					</div>
+					上面的框内会显示已经添加的共享文件夹，下面的框内是你的电脑内的文件。上图中D:和C:就对应电脑的C盘和D盘。点击对应的图标就能够浏览里面的内容。找到你要共享的文件夹，点击右侧的添加就能添加了。注意目前只能添加文件夹不能添加单个文件。添加完成之后如下图所示。
+					
+					点击已共享文件夹右侧的删除即可取消共享
+					设置完共享文件夹就可以开始访问自己的文件了。点击左上角的房子图标就可以跳转到主页。如下图所示。
+					<div class='doc-img'>
+						<img class='img-thumbnail' src='/static/img/docs/index-second.png'>
+						<span>添加完成后的主页</span>
+					</div>
+					基本设置已经完成，想要了解更多软件的使用方法请参阅用户手册。<br>
+					<h4>Enjoy it now!</h4>
+				</p>
+			</div> 
+		</div>
+	</div>
+</div>
+

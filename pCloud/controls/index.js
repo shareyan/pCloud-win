@@ -16,6 +16,7 @@ exports.index = function(app){
 		return app.render('base.html',context);
 	}
 	if(app.req.method.toLowerCase() == 'post'){
+		//a flag to mark if this req is processed already
 		var form = new formidable.IncomingForm();
 		form.parse(app.req,function(err,field,files){
 			var filename = field.filename;
@@ -52,6 +53,7 @@ exports.index = function(app){
 					})
 				}
 			}else{
+				var returnFlag = false;
 				var filePath = '';
 				var myFolders = new shareFolder(app);
 				var folders = myFolders.objects.all();
@@ -72,6 +74,10 @@ exports.index = function(app){
 								fileUrl += pathList[count] + '/';
 							}
 						}
+						//console
+						console.log('filePath:',filePath);
+						console.log('fileUrl',fileUrl);
+						returnFlag = true;
 						getFiles(filePath,fileUrl,function(fileList){
 							return app.JSON({
 								message:'OK',
@@ -81,16 +87,19 @@ exports.index = function(app){
 						})
 					}
 				})
-				var folderList = [];
-				folders.forEach(function(folder){
-					folderList.push(folder.objects.getInfo());
-				})
-				var pathList = [];
-				return app.JSON({
-					message:'OK',
-					fileList:folderList,
-					pathList:pathList,
-				})
+				if(!returnFlag){
+					//not found
+					var folderList = [];
+					folders.forEach(function(folder){
+						folderList.push(folder.objects.getInfo());
+					})
+					var pathList = [];
+					return app.JSON({
+						message:'OK',
+						fileList:folderList,
+						pathList:pathList,
+					})
+				}
 			}
 		})
 	}else{

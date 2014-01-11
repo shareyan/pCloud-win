@@ -4,6 +4,7 @@ var shareFolder = require('../controls/shareFolder');
 var permissions = require('../controls/permissions');
 var system = require('../controls/system');
 var test = require('../controls/test');
+var docs = require('../controls/docs');
 
 module.exports = function(app){
 	app.get('/',index.index);
@@ -19,6 +20,12 @@ module.exports = function(app){
 	app.get('/admin',permissions.Permissions);
 	app.get('/shutdown',system.shutdown);
 	app.get('/del',system.delFile);
+	app.get('/doc',docs.home);
+	app.get('/whats-new',docs.newFeather);
+	app.get('/getStarted',docs.getStarted);
+	app.get('/manual',docs.manual);
+	app.get('/community',docs.community);
+	app.get('/license',docs.license);
+	app.get('/about',docs.about);
 	app.view();
 }
-
