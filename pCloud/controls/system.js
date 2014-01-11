@@ -3,6 +3,7 @@ var formidable = require('formidable');
 var shareFolder = require('../models/shareFolder');
 var fs = require('fs');
 var getFiles = require('../utils/getFiles');
+var codes = require('../utils/code');
 
 function shutdown(app){
 	var user = app.getUser();
@@ -19,11 +20,21 @@ function shutdown(app){
 	}
 	app.render('base.html',context);
 	//save dataBase before shutdown
-	var data = JSON.stringify(dataBase);
+	console.log('saving data before quiting');
+	//delete all sessions
+	app.data.dataBase.sessionList = [];
+	var data = JSON.stringify(app.data.dataBase);
+	//encode before save
+	data = codes.encode(data);
 	fs.writeFile('../models/db',data,'utf8',function(err){
-		return sys.shutdown();
+		if(err)console.log(err);
+		fs.writeFile('../../../logs/log.txt',0,'utf8',function(err){
+			if(err){
+				console.log(err);
+			}
+			return sys.shutdown();
+		})
 	})
-	
 }
 
 function delFile(app){
