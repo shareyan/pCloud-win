@@ -70,7 +70,7 @@ exports.index = function(app){
 						pathList.push(filename);
 						for(var count=0;count<pathList.length;count++){
 							filePath += pathList[count]+'/';
-							if(count>=JSON.parse(folder.folder)){
+							if(count>=JSON.parse(folder.folder).length){
 								fileUrl += pathList[count] + '/';
 							}
 						}

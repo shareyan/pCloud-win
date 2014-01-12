@@ -54,9 +54,15 @@ myDataBase.load(function(data){
 				var req = {},res = {};
 				var myapp = new app(req,res,data);
 				myapp.port = port;
-				sys.updateIp(myapp);
+				sys.updateIp(myapp,function(msg){
+					if(msg.message == "Error"){
+						//updateIp failed
+						order.sendNews("noNetwork",myapp);
+					}
+				});
 			});
 		})
+		//start a socket to communicate with win socket
 		freePort(function(myport){
 			//start a tcp server
 			net.createServer(function(socket){
@@ -91,6 +97,8 @@ myDataBase.load(function(data){
 					if(command == 'resetPwd')order.resetPwd(socket,myapp);
 					if(command == 'delSuperUser')order.delSuperUser(socket,myapp);
 					if(command == 'checkUpdate')order.checkUpdate(socket,myapp);
+					if(command == 'news')order.getNews(socket,myapp);
+					if(command == 'getIp')order.getIp(socket,myapp);
 				});
 				
 				socket.on('error',function(err){

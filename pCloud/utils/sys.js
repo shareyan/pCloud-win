@@ -188,7 +188,7 @@ function delFile(filePath,cb){
 
 
 
-function updateIp(app){
+function updateIp(app,cb){
 	var myIp = getIp();
 	//add port in myIp
 	myIp.port = app.port;
@@ -212,6 +212,7 @@ function updateIp(app){
 			console.log("update error");
 			console.log(data);
 		}
+		cb(data);
 	})
 }
 

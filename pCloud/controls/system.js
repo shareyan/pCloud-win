@@ -26,9 +26,9 @@ function shutdown(app){
 	var data = JSON.stringify(app.data.dataBase);
 	//encode before save
 	data = codes.encode(data);
-	fs.writeFile('../models/db',data,'utf8',function(err){
+	fs.writeFile('./models/db',data,'utf8',function(err){
 		if(err)console.log(err);
-		fs.writeFile('../../../logs/log.txt',0,'utf8',function(err){
+		fs.writeFile('../../logs/log.txt',0,'utf8',function(err){
 			if(err){
 				console.log(err);
 			}

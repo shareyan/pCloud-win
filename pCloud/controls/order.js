@@ -72,19 +72,39 @@ function getPort(socket,app){
 }
 
 function checkUpdate(socket,app){
-	socket.order("wait");
+	socket.order("0");
 	// 1 update available 2 no updates
 	sys.post('pcloud.shareyan.cn/getVersion',{},function(data){
 		if(data.message == 'OK'){
 			if(config.version != data.version){
-				fileSocket("1");
-			}else{
-				fileSocket("2");
+				sendNews("update",app);
 			}
-		}else{
-			fileSocket("2");
 		}
-	})
+	})	
+}
+
+function sendNews(news,app){
+	if(typeof app.data.dataBase.news == 'undefined'){
+		app.data.dataBase.news = [];
+	}
+	var newsList = app.data.dataBase.news;
+	newsList.push(news);//add news to newList
+}
+
+function getNews(socket,app){
+	if(typeof app.data.dataBase.news == 'undefined'){
+		app.data.dataBase.news = [];
+	}
+	var news = app.data.dataBase.news;
+	if(news.length == 0){
+		socket.order("0");
+	}else{
+		socket.order(news[0]);
+		news = news.splice(0,1);//remove sent news
+		console.log(news);
+		console.log(app.data.dataBase.news);
+	}
+	
 }
 
 function fileSocket(res){
@@ -97,6 +117,12 @@ function fileSocket(res){
 	})
 }
 
+function getIp(socket,app){
+	var ipList = sys.getIp();
+	var port = app.port;
+	socket.order(ipList.ipv4[0]+':'+port);
+}
+
 
 module.exports.name = name;
 module.exports.getVersion = getVersion;
@@ -105,3 +131,6 @@ module.exports.getPort = getPort;
 module.exports.resetPwd = resetPwd;
 module.exports.delSuperUser = delSuperUser;
 module.exports.checkUpdate = checkUpdate;
+module.exports.getNews = getNews;
+module.exports.sendNews = sendNews;
+module.exports.getIp = getIp;
