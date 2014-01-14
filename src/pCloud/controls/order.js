@@ -26,16 +26,55 @@ function getVersion(socket,app){
 function update(socket,app){
 	//update functions
 	socket.order("0");
-	//download file from server
-	sys.download("http://pcloud.shareyan.cn/downloads/latest",function(filename){
-		//exe this file
-		var path = __dirname+'\\..\\updates\\'+filename;
-		console.log(path);
-		var res = spawn(path,[""]);
-		//complete sound
-		sys.playSound("complete.wav");
-	})
+	//start update process
+	if(fs.existsSync('../../updates/node.exe')){
+		console.log("update process started");
+		var updatePro = spawn(__dirname+'/../../../updates/node.exe',['update.js','-v',config.version,'-p',app.socketPort],{
+			cwd:__dirname+'/../../../updates/',
+		});
+		updatePro.on('error',function(err){
+			console.log(err);
+		})
+	}else{
+		//copy node.exe to target directory
+		console.log("update process started");
+		copyFile('./node.exe','../../updates/node.exe',function(err){
+			if(err)console.log(err);
+			var updatePro = spawn(__dirname+'/../../../updates/node.exe',['update.js','-v',config.version,'-p',app.socketPort],{
+				cwd:__dirname+'/../../../updates/',
+			});
+			updatePro.on('error',function(err){
+				console.log(err);
+			})
+		})
+	}
+	
 }
+
+function copyFile(source, target, cb) {
+  var cbCalled = false;
+
+  var rd = fs.createReadStream(source);
+  rd.on("error", function(err) {
+    done(err);
+  });
+  var wr = fs.createWriteStream(target);
+  wr.on("error", function(err) {
+    done(err);
+  });
+  wr.on("close", function(ex) {
+    done();
+  });
+  rd.pipe(wr);
+
+  function done(err) {
+    if (!cbCalled) {
+      cb(err);
+      cbCalled = true;
+    }
+  }
+}
+
 
 function delSuperUser(socket,app){
 	var myUser = new User(app);
@@ -123,6 +162,11 @@ function getIp(socket,app){
 	socket.order(ipList.ipv4[0]+':'+port);
 }
 
+function fullExit(socket,app){
+	sendNews('fullExit',app);
+	socket.write('OK');
+}
+
 
 module.exports.name = name;
 module.exports.getVersion = getVersion;
@@ -134,3 +178,4 @@ module.exports.checkUpdate = checkUpdate;
 module.exports.getNews = getNews;
 module.exports.sendNews = sendNews;
 module.exports.getIp = getIp;
+module.exports.fullExit = fullExit;

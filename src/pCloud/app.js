@@ -88,7 +88,10 @@ myDataBase.load(function(data){
 					}
 					var req = {},res = {};
 					var myapp = new app(req,res,data);
+					//http port
 					myapp.port = port;
+					//socket port
+					myapp.socketPort = myport;
 					if(command == 'name')order.name(socket,myapp);
 					//if(command == 'sign')order.sign(socket,myapp);
 					if(command == 'getVersion')order.getVersion(socket,myapp);
@@ -99,6 +102,7 @@ myDataBase.load(function(data){
 					if(command == 'checkUpdate')order.checkUpdate(socket,myapp);
 					if(command == 'news')order.getNews(socket,myapp);
 					if(command == 'getIp')order.getIp(socket,myapp);
+					if(command == 'fullExit')order.fullExit(socket,myapp);
 				});
 				
 				socket.on('error',function(err){
