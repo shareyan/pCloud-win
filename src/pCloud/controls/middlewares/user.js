@@ -4,7 +4,8 @@ var url = require('url');
 var checkSuperUser = function(app){
 	var urlInfo = url.parse(app.req.url);
 	if(app.req.method == 'POST')return;//only redirect get req
-	if(urlInfo.pathname == '/superUserReg' || urlInfo.pathname == '/oa/SuperUserReg' || urlInfo.pathname == "/favicon.ico"){
+	var passList = ['/superUserReg','/oa/SuperUserReg',"/favicon.ico",'/doc','/whats-new','/getStarted','/manual','/community','/license','/about'];
+	if(passList.indexOf(urlInfo.pathname) != -1){
 		return;
 	}
 	var myUser = new User(app);

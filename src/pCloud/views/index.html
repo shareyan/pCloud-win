@@ -32,8 +32,21 @@
 	}
 
 	function send(filename,filePath){
+		History.pushState({filename:filename,filePath:filePath,pathList:pathList}, filename,'?name='+filename);
+	}
+
+	History.Adapter.bind(window,'popstate',function(){ // Note: We are using statechange instead of popstate
+        var State = History.getState(); // Note: We are using History.getState() instead of event.state
 		//make up the path
-		csrf = $('input[name="csrfmiddlewaretoken"]').val();
+		if(State.title != ""){
+			var filename = State.data.filename;
+			var filePath = State.data.filePath;
+			pathList = State.data.pathList;
+		}else{
+			var filename = '/';
+			var filePath = '';
+			pathList = [];
+		}
 		$('.content').html('');
 		$('.loading').removeClass('hide');
 		$.post('/',{
@@ -49,8 +62,7 @@
 				updateView();
 			}
 		})
-	}
-
+    });
 	function changePath(count){
 		var newList = [];
 		var filePath = ''
@@ -91,16 +103,60 @@
 	{/for}
 	]
 	
+	function downloadURL(url) {
+		window.location = url;
+		/*
+		var hiddenLinkID = 'hiddenLink';
+		var link = $('#'+hiddenLinkID);
+		if(link.length == 0){
+			var link = $("<a href='#' style='display:none;'>link</a>")
+			$('body').append(link);
+		}
+		link.attr('href',url);
+		link.trigger('click');
+		*/
+		/*
+		var hiddenIFrameID = 'hiddenDownloader',
+			iframe = document.getElementById(hiddenIFrameID);
+		if (iframe === null) {
+			iframe = document.createElement('iframe');
+			iframe.id = hiddenIFrameID;
+			iframe.style.display = 'none';
+			document.body.appendChild(iframe);
+		}
+		iframe.src = url;*/
+	};
+	
+	$(document).on('click','tr>td',function(){
+		if($(this).hasClass('remove')){
+			var link = $(this).find('a');
+			var name = link.data('name');
+			var path = link.data('path');
+			del(name,path);
+		}else{
+			var link = $(this).parent().find('td>a')[0]
+			var url = $(link).data('url');
+			if(typeof url == 'undefined'){
+				var name = $(link).data('name');
+				var path = $(link).data('path');
+				console.log(name,path);
+				send(name,path);
+			}else{
+				downloadURL(url);
+			}
+		}
+	})
+	//del(name,path);
 	function updateView(){
 		var template = "\
 		{@if file.isFile == 'True' || file.isFile == true}\
-		<tr><td><a style='display:block;color:black;font-size:14px;text-decoration:none;padding:10px;' href='$\{file.url}' ><i style='padding:5px;' class='fa fa-file-text-o'></i>$\{file.name}</a></td>{if permissions.shareFolder.delete}\
-		<td class='hide remove'><a href='#' onclick='del(\"$\{file.name}\",\"$\{file.path}\");return false;'><i class='fa fa-times text-danger'></i></a></td>\
-		{/if}<td><span>$\{file.ctime}</span></td><td><span>$\{file.size}</span></td></tr>\
+		<tr><td><a style='display:block;color:black;font-size:14px;text-decoration:none;padding:10px;' href='#' onclick='return false;' data-url='$\{file.url}'><i style='padding:5px;' class='fa fa-file-text-o'></i>$\{file.name}</a></td>{if permissions.shareFolder.delete}\
+		<td class='hide remove'><a href='#' data-name='$\{file.name}' data-path='$\{file.path}' onclick='return false;'><i class='fa fa-times text-danger'></i></td>\
+		{/if}<td><span>$\{file.ctime}</span></td><td><span>$\{file.size}</span></td></a></tr>\
 		{@else}\
-		<tr><td><a style='display:block;color:black;font-size:14px;text-decoration:none;padding:10px;' href='#' onclick='send(\"$\{file.name}\",\"$\{file.path}\");return false;'><i style='padding:5px;' class='fa fa-folder-o'></i>$\{file.name}</a></td>\
+		<tr><td><a style='display:block;color:black;font-size:14px;text-decoration:none;padding:10px;' href='#' data-name='$\{file.name}' data-path='$\{file.path}' onclick='return false;'><i style='padding:5px;' class='fa fa-folder-o'></i>$\{file.name}</a></td>\
 		{if permissions.shareFolder.delete}\
-		<td class='hide remove'><a href='#' onclick='del(\"$\{file.name}\",\"$\{file.path}\");return false;'><i class='fa fa-times text-danger'></i></a></td>\
+		<td class='hide remove'><a href='#' data-name='$\{file.name}' data-path='$\{file.path}' onclick='return false;'><i class='fa fa-times text-danger'></i></a></td>\
 		{/if}<td><span>$\{file.ctime}</span></td><td><span>$\{file.size}</span></td></tr>\
 		{@/if}\
 			";
@@ -230,6 +286,7 @@
 				filePath:filePath,
 				pathList:JSON.stringify(pathList),
 			},function(serverData){
+				$('div.remove').removeClass('hide');
 				if(serverData.message == 'OK'){
 					myNotify('成功','文件删除成功');
 					data = serverData.fileList;

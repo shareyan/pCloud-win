@@ -6,6 +6,7 @@ var spawn = require('child_process').spawn;
 var Code = require('../models/code');
 var fs = require('fs');
 var spawn = require('child_process').spawn;
+var exec = require('child_process').exec;
 
 function getIp(){
 	var ipv4List = [];
@@ -275,6 +276,40 @@ function playSound(filename){
 	
 }
 
+// Import
+
+
+// Prepare
+isWindows = (process.platform.indexOf('win') == 0)
+macRegex = /(?:[a-z0-9]{2}[:\-]){5}[a-z0-9]{2}/ig
+zeroRegex = /(?:[0]{2}[:\-]){5}[0]{2}/
+
+function getMac(next){
+	var command	= "";
+	if(isWindows){
+		command = "ipconfig /all";
+	}else{
+		command = "ifconfig";
+	}
+	
+	function extractMac(data,next){
+		var result = null;
+		while(match = macRegex.exec(data)){
+			var macAddress = match[0]
+            var isZero = zeroRegex.test(macAddress)
+            if(!isZero){
+				if(!result)result=[];
+				result.push(macAddress);
+			}
+		}
+		next(result);
+	}
+	exec(command,function(err, stdout, stderr){
+		if(err)next(err);
+		return extractMac(stdout, next)
+	})  
+}
+
 module.exports.getIp = getIp;
 module.exports.post = post;
 module.exports.shutdown = shutdown;
@@ -283,3 +318,4 @@ module.exports.updateIp = updateIp;
 module.exports.httpsPost = httpsPost;
 module.exports.download = download;
 module.exports.playSound = playSound;
+module.exports.getMac = getMac;

@@ -20,12 +20,43 @@ var order = require('./controls/order');
 var dataBase = {};
 var templates = {};
 var port = '';
-
+var key = "";
 //load data to memory
 var myDataBase = new loadFiles('./models/db');
 myDataBase.load(function(data){
+	//get key
+	if(fs.existsSync('./models/key')){
+		key = fs.readFileSync('./models/key','utf8');
+		//compare key with mac
+		sys.getMac(function(macList){
+			var hashedMacList = [];
+			macList.forEach(function(mac){
+				var hashedMac = codes.hashEncode(mac);
+				hashedMacList.push(hashedMac);
+			});
+			if(hashedMacList.indexOf(key) == -1){
+				//key mac no match
+				//generate new key
+				var mac = macList[0];
+				key = codes.hashEncode(mac);
+				fs.writeFileSync('./models/key','utf8',key);
+			}
+			startapp(data);
+		})
+	}else{
+		//getMac
+		sys.getMac(function(mac){
+			mac = mac[0];
+			key = codes.hashEncode(mac);
+			fs.writeFileSync('./models/key',key,'utf8');
+			startapp(data);
+		})
+	}
+})
+	
+function startapp(data){
 	try{
-		data = codes.decode(data);
+		data = codes.decode(data,key);
 		dataBase = JSON.parse(data);
 	}catch(err){
 		dataBase = {
@@ -121,7 +152,8 @@ myDataBase.load(function(data){
 			})
 		})
 	})
-})
+}
+
 
 
 function onreq(req,res){
@@ -177,7 +209,9 @@ function exit(){
 	dataBase.sessionList = [];
 	var data = JSON.stringify(dataBase);
 	//encode before save
-	data = codes.encode(data);
+	console.log(key);
+	console.log(data);
+	data = codes.encode(data,key);
 	fs.writeFile('./models/db',data,'utf8',function(err){
 		if(err)console.log(err);
 		fs.writeFile('../../logs/log.txt',0,'utf8',function(err){

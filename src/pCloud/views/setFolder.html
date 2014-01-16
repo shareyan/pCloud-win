@@ -59,22 +59,33 @@
 	{/for}
 	]
 	function openFolder(filename){
-			csrf = $('input[name="csrfmiddlewaretoken"]').val();
-			$('.content').html('');
-			$('.loading').removeClass('hide');
-			$.post('/setShareFolder',{
-				csrfmiddlewaretoken:csrf,
-				filename:filename,
-				pathList:JSON.stringify(pathList),
-				action:'openFolder',
-			},function(serverData){
-				$('.loading').addClass('hide');
-				data = serverData.fileList;
-				pathList = serverData.pathList;
-				updateView();
-			})
-		}
+		History.pushState({filename:filename,pathList:pathList}, filename,'?name='+filename);
+	}
 
+	History.Adapter.bind(window,'popstate',function(){ // Note: We are using statechange instead of popstate
+        var State = History.getState(); // Note: We are using History.getState() instead of event.state
+		//make up the path
+		if(State.title != ""){
+			var filename = State.data.filename;
+			pathList = State.data.pathList;
+		}else{
+			var filename = '/';
+			pathList = [];
+		}
+		$('.content').html('');
+		$('.loading').removeClass('hide');
+		$.post('/setShareFolder',{
+			csrfmiddlewaretoken:csrf,
+			filename:filename,
+			pathList:JSON.stringify(pathList),
+			action:'openFolder',
+		},function(serverData){
+			$('.loading').addClass('hide');
+			data = serverData.fileList;
+			pathList = serverData.pathList;
+			updateView();
+		})
+	});
 	function updateView(){
 		var template = "\
 		{@if file.isFile == 'True' || file.isFile == true}\
