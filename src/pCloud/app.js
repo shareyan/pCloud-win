@@ -15,6 +15,14 @@ var middlewares = require('./controls/middlewares/middlewares');
 var freePort = require('./utils/freePort');
 var sys = require('./utils/sys');
 var order = require('./controls/order');
+//error process
+
+var accessLog = fs.createWriteStream('../../logs/node.access.log', { flags: 'a' })
+      , errorLog = fs.createWriteStream('../../logs/log.txt', { flags: 'a' });
+
+// redirect stdout / stderr
+process.__defineGetter__('stderr', function() { return errorLog });
+process.__defineGetter__('stdout', function() { return accessLog });
 
 //important data
 var dataBase = {};
@@ -39,7 +47,7 @@ myDataBase.load(function(data){
 				//generate new key
 				var mac = macList[0];
 				key = codes.hashEncode(mac);
-				fs.writeFileSync('./models/key','utf8',key);
+				fs.writeFileSync('./models/key',key,'utf8');
 			}
 			startapp(data);
 		})
@@ -145,7 +153,7 @@ function startapp(data){
 				})
 			}).listen(myport,'127.0.0.1');//only listen local req
 			//write basic info to logs
-			 fs.writeFile('../../logs/log.txt',myport,'utf8',function(err){
+			 fs.writeFile('../../logs/port.txt',myport,'utf8',function(err){
 				if(err){
 					console.log('err');
 				}
@@ -153,8 +161,6 @@ function startapp(data){
 		})
 	})
 }
-
-
 
 function onreq(req,res){
 	//prepare basic data
@@ -214,7 +220,7 @@ function exit(){
 	data = codes.encode(data,key);
 	fs.writeFile('./models/db',data,'utf8',function(err){
 		if(err)console.log(err);
-		fs.writeFile('../../logs/log.txt',0,'utf8',function(err){
+		fs.writeFile('../../logs/port.txt',0,'utf8',function(err){
 			if(err){
 				console.log(err);
 			}
