@@ -14,6 +14,16 @@ var mkdirp = require('./mkdirp');
 var rimraf = require('./rimraf');
 var spawn = require('child_process').spawn;
 
+//error process
+
+var accessLog = fs.createWriteStream('./node.access.log', { flags: 'a' })
+      , errorLog = fs.createWriteStream('./log.txt', { flags: 'a' });
+
+// redirect stdout / stderr
+process.__defineGetter__('stderr', function() { return errorLog });
+process.__defineGetter__('stdout', function() { return accessLog });
+
+
 //main process
 var parms = processCmd();
 update(parms.version,parms.port);
@@ -41,43 +51,38 @@ function processCmd(){
 function update(version,port){
 	getFileList(version,function(fileList){
 		console.log(fileList);
+		var tempList = [];
+		for(var count =0;count<fileList.length;count++){
+			if(fileList[count].indexOf('\\') == -1){
+				//special char in the string
+				//remove it from list
+				tempList.push(fileList[count]);
+			}
+		}
+		fileList = tempList;
+		console.log(fileList);
 		downloadCtr(fileList,function(){
 			//stop main process
 			send('fullExit',port,function(){
-				//mv files
-				console.log('updating files')
-				var fileCount = 0;
-				fileList.forEach(function(filePath){
-					var orginPath = './tmp/'+filePath;
-					var targetPath = '../'+filePath;
-					var pathList = targetPath.split('/');
-					pathList = pathList.slice(0,pathList.length-1);
-					console.log(pathList.join('/'));
-					if(deleteFileList.indexOf(filePath) != -1){
-						//the file has been delete
-						rimraf(targetPath,function(err){
-							if(err){console.log(err)};
-						})
-						
-						fileCount += 1;
-						if(fileCount == fileList.length){
-							//all file has been updated
-							//restart main process
-							console.log("start main process");
-							spawn(__dirname+'/../src/pCloud.exe',[''],{
-								cwd:__dirname+'/../src/',
-							});
-							//delete temp files
-							rimraf('./tmp',function(err){
-								if(err)console.log(err);
-								process.exit();
-							})
-						}
-					}else{
-						mkdirp(pathList.join('/'),function(){
-							fs.rename(orginPath,targetPath,function(err){
-								if(err)console.log(err);
+				//wait process to exit
+				setTimeout(function(){
+					//mv files
+					console.log('updating files')
+					var fileCount = 0;
+					fileList.forEach(function(filePath){
+						var orginPath = './tmp/'+filePath;
+						var targetPath = '../'+filePath;
+						var pathList = targetPath.split('/');
+						pathList = pathList.slice(0,pathList.length-1);
+						console.log(pathList.join('/'));
+						if(deleteFileList.indexOf(filePath) != -1){
+							//the file has been delete
+							console.log('del:'+targetPath);
+							rimraf(targetPath,function(err){
+								if(err){console.log(err)};
 								fileCount += 1;
+								console.log('count:'+fileCount);
+								console.log('fileList:'+fileList.length); 
 								if(fileCount == fileList.length){
 									//all file has been updated
 									//restart main process
@@ -91,11 +96,37 @@ function update(version,port){
 										process.exit();
 									})
 								}
-							});
-						})
-					}
-					
-				})
+							})
+						}else{
+							mkdirp(pathList.join('/'),function(){
+								//delete old files
+								console.log('replace:'+targetPath);
+								rimraf(targetPath,function(err){
+									if(err)console.log(err);
+									//mv new files
+									fs.rename(orginPath,targetPath,function(err){
+										if(err)console.log(err);
+										fileCount += 1;
+										console.log('count:'+fileCount);
+										if(fileCount == fileList.length){
+											//all file has been updated
+											//restart main process
+											console.log("start main process");
+											spawn(__dirname+'/../src/pCloud.exe',[''],{
+												cwd:__dirname+'/../src/',
+											});
+											//delete temp files
+											rimraf('./tmp',function(err){
+												if(err)console.log(err);
+												process.exit();
+											})
+										}
+									});
+								})
+							})
+						}
+					})
+				},2000);
 			});
 		});
 	})
