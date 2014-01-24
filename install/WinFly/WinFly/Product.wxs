@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  <copyright file="Product.wxs" organization="shareyan">
+    you are free to do anything with it!
+  </copyright>
+  
+  因为使用heat进行批量收割文件，所以文件路径ID、文件名ID不能自定义。下面是对应关系：
+  fil215883E83A6ECBA667F993F5AFEF43FB:\src\pCloud.exe
+  dir700227A3970F65207760FF856A1E11F1:\src
+  dir337BDE44CF749C6FEA45E5F18889E1BE:\src\pCloud\views\
+  dirEB435292FF892807BE5A3606B3A82AA4:\updates\
+  
+  自我复制功能文件ID对应关系
+  {10D12530-EE3D-4F44-A9E6-D864A68DE51F}：WinFly.msi
+  
+  外部引用变量源地址：
+  !(loc.ProductLanguage)、!(loc.WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT)：本地化wxl文件，eg：zh-CN.wxl,en-US.wxl
+  $(var.codepage)：vs2010 解决方案build属性处定义，如果是命令行则在candle后加-dcodepage
+  
+  注意：使用vs2010编译，需要注释掉 Id为"InstallMyself"的元素所涉及的所有内容：line：41、144-157
+-->
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension" >
+  <Product Id="{10D12530-EE3D-4F44-A9E6-D864A68DE51F}" Name="WinFly" 
+           Language="!(loc.ProductLanguage)" Codepage="$(var.codepage)"
+           Version="1.1.3" 
+           Manufacturer="shareyan"
+           UpgradeCode="ea2fb042-e750-49d5-8616-859c96a0ca45">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine"
+             Description="shareyan's WinFly Installer."
+             Comments='Winfly is a free app of Shareyan.'
+             Manufacturer='shareyan'
+             Languages='!(loc.ProductLanguage)'
+             SummaryCodepage='$(var.codepage)'/>
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <Media Id='1' Cabinet='winfly.cab' EmbedCab='yes' />
+    <Media Id='2' />
+    <Feature Id="ProductFeature" Title="WinFly" Level="1">
+      <ComponentRef Id="StartMenuShortcut" />
+      <ComponentRef Id="StartMenuUrl" />
+      <ComponentGroupRef Id="AllFiles" />
+      <ComponentRef Id="InstallMyself" />
+      <ComponentRef Id="DesktopShortcut" />
+    </Feature>
+    <UI>
+      <UIRef Id="myWixUI_InstallDir" />
+      <Publish Dialog="ExitDialog"
+               Control="Finish"
+               Event="DoAction"
+               Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+      <Property Id="INSTALLDESKTOPSHORTCUT" Value="1" />
+      <Property Id="INSTALLSTARTSHORTCUT" Value="1" />
+    </UI>
+    <CustomAction Id="LaunchApplication"
+              BinaryKey="WixCA"
+              DllEntry="WixShellExec"
+              Impersonate="yes" />
+    <Property Id="WixShellExecTarget" Value="[#fil215883E83A6ECBA667F993F5AFEF43FB]" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="!(loc.WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT)" />
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1" />
+    <WixVariable Id="WixUIDialogBmp" Value=".\ui\welcome.bmp" />
+    <Property Id="ARPPRODUCTICON" Value="WinFly32.exe" />
+    <Property Id="TARGETDIR">D:\</Property>
+  </Product>
+
+  <!--设置安装路径,开始菜单路径,桌面快捷方式路径-->
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder2" Name="Program Files">
+        <Directory Id="INSTALLFOLDER" Name="WinFly" />
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="WinFly"/>
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop"/>
+    </Directory>
+  </Fragment>
+  
+  <!--设置需要添加的各种快捷方式,里面有安装条件、安装包本地化需要的外部string引用-->
+  <Fragment>
+    <!--设置开始菜单快捷方式,包括程序、卸载、网页链接-->
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="StartMenuShortcut" Guid="{33383739-2617-44AE-9C9E-4014FD26C3DF}">
+        <Condition>INSTALLSTARTSHORTCUT</Condition>
+        <!--util:InternetShortcut Id="OnlineDocumentationShortcut"
+                               Name="Online Help"
+                               Target="http://pcloud.shareyan.cn"
+                               /-->
+        <Shortcut Id="UninstallProduct"
+                  Name="!(loc.UninstallProduct)"
+                  Description="Uninstalls WinFly App"
+                  Target="[SystemFolder]msiexec.exe"
+                  Arguments="/x [ProductCode]"
+                  Icon="uninstall32.exe"/>
+        
+        <Shortcut Id="PcloudsShortcut"
+                  Name="WinFly"
+                  Description="The Easiest Way to Share Files and Movies"
+                  Target="[dir700227A3970F65207760FF856A1E11F1]pCloud.exe"
+                  WorkingDirectory="dir700227A3970F65207760FF856A1E11F1"
+                  Icon="WinFly32.exe"/>
+        
+        <Shortcut Id="WebShortcut"
+                  Name="!(loc.WebShortcut)"
+                  Description="Find more funy things online"
+                  Target="[dir337BDE44CF749C6FEA45E5F18889E1BE]online_help.url"
+                  WorkingDirectory="dir337BDE44CF749C6FEA45E5F18889E1BE"
+                  Icon="interneticon.url"/>
+        
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\Microsoft\MyApplicationName" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+    <!--设置桌面快捷方式-->
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="DesktopShortcut" Guid="{BE27B8B2-C9B4-4E44-A252-DF1E221C91F8}">
+        <Condition>INSTALLDESKTOPSHORTCUT</Condition>
+        <Shortcut Id="DesktopPcloudsShortcut"
+                  Directory="DesktopFolder"
+                  Name="WinFly"
+                  Target="[dir700227A3970F65207760FF856A1E11F1]pCloud.exe"
+                  WorkingDirectory="dir700227A3970F65207760FF856A1E11F1"
+                  Icon="WinFly128.exe"/>
+        <RegistryValue Root="HKCU" Key="Software\Microsoft\MyApplicationName" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+  <!--指定各种菜单快捷方式图标，安装界面所用位图用WixVariable设置-->
+  <Fragment>
+    <Icon Id="WinFly32.exe" SourceFile="ico\test32.ico" />
+    <Icon Id="WinFly128.exe" SourceFile="ico\logo2.ico" />
+    <Icon Id="uninstall32.exe" SourceFile="ico\uninstall.ico" />
+    <Icon Id="interneticon.url" SourceFile="ico\internet24.ico" />
+    <DirectoryRef Id="dir337BDE44CF749C6FEA45E5F18889E1BE">
+      <Component Id="StartMenuUrl" Guid="{21B57609-EBDD-406B-BF3C-81F6A9193794}">
+        <File  Id="Online_Help" KeyPath="yes" Source=".\url\online_help.url"/>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+
+  <!--实现安装包自我复制功能，用FILEEXISTS判断安装包名字是否为WinFly，如果不是则安装时不执行复制。-->
+  <Fragment>
+    <DirectoryRef Id="dirEB435292FF892807BE5A3606B3A82AA4">
+      <Component Id="InstallMyself"
+                Guid="a5cec851-a8cf-4c6d-84ff-f165015ebef7">
+        <Condition>FILEEXISTS</Condition>
+        <File Source="WinFly.msi" Compressed="no" DiskId="2" />
+      </Component>
+    </DirectoryRef>
+    <Property Id='FILEEXISTS'>
+      <DirectorySearch Id='DirSearch' Path='[SOURCEDIR]' Depth='0'>
+        <FileSearch Id='FileSearch' Name='WinFly.msi'/>
+      </DirectorySearch>
+    </Property>
+  </Fragment>
+</Wix>

@@ -1,0 +1,10 @@
+{
+  "name": "pCloud",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+	"formidable":"latest",
+	"node-static":"latest",
+	"whiskers":"0.3.1"
+  }
+}

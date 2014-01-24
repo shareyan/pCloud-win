@@ -1,0 +1,94 @@
+a:hover {
+	background-color:rgb(60,60,60);
+}
+
+i.fa{
+	padding-right:5px;
+}
+
+body{
+	height:auto !important;
+	position:relative;
+	padding-bottom:130px;
+	min-height:500px;
+	min-width:240px;
+}
+
+.domainName{
+	padding:20px;
+	position:absolute;
+	bottom:10px;
+	color:gray;
+}
+
+.table-responsive{
+	overflow-x:auto !important;
+}
+.nav>a:hover {
+	background-color:gray;
+}
+th {
+	height:30px;
+	padding:5px;
+}
+th>a{
+	color:gray;
+	text-decoration:none;
+	font-size:16px;
+	width:100%;
+	display:block;
+	padding:5px;
+}
+
+td.remove{
+	text-align:center;
+}
+
+th>a:hover{
+	background-color:wheat;
+	text-decoration:none;
+	color:gray;
+}
+
+td{
+	vertical-align:middle !important;
+}
+
+td>a:hover{
+	background-color:wheat;
+}
+
+.info{
+	display: block;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+.file-nav>a:hover{
+	background-color:rgb(50,120,50);
+}
+
+i.fa{
+	padding:0px 5px 0px 5px;
+}
+
+body{
+	font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, .lead {
+font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+}
+
+a.backHome{
+	text-decoration:none;
+}
+a.backHome:hover{
+	background-color:wheat;
+	text-decoration:none;
+	color:gray;
+}
+
+.jumbotron>p>a:hover{
+	background-color:wheat;
+}

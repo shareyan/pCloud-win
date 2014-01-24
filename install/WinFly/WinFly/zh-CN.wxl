@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  <copyright file="zh-CN.wxl" organization="shareyan">
+    you are free to do anything with it!
+  </copyright>
+-->
+<WixLocalization Culture="zh-cn" Codepage="936" xmlns="http://schemas.microsoft.com/wix/2006/localization">
+  <String Id="UninstallProduct">卸载WinFly</String>
+  <String Id="WebShortcut">在线帮助</String>
+  <String Id="DesktopShortcutCheckBox" Overridable="yes">在桌面添加快捷方式</String>
+  <String Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Overridable="yes">安装完成后运行WinFly</String>
+  <String Id="ProductLanguage">1028</String>
+  <!-- 中文的Language 代码编号是1028-->
+</WixLocalization>

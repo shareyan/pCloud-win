@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>pCloud 你的私有云</title>
+		<link rel="icon" href="/static/img/logo.jpg" type="image/x-icon" />
+		<link rel="shortcut icon" href="/static/img/logo.jpg" type="image/x-icon" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="apple-touch-icon" sizes="114x114" href="/static/img/touch-icon-114x114.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="/static/img/touch-icon-72x72.png" />
+		<link rel="apple-touch-icon" href="/static/img/touch-icon-iphone.png" />
+		
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/img/apple-touch-icon-114x114.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/img/apple-touch-icon-72x72.png" />
+		<link rel="apple-touch-icon-precomposed" href="/static/img/touch-icon-iphone.png" />
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<script src='/static/js/jquery-1.10.2.min.js'></script>
+		<script src='/static/js/juicer.js'></script>
+		<link rel='stylesheet' href='/static/css/font-awesome-4.0.3/css/font-awesome.css'>
+		<link rel='stylesheet' href='/static/css/bootstrap-3.0.3-dist/dist/css/bootstrap.min.css'>
+		<link rel='stylesheet' href='/static/css/bootstrap-3.0.3-dist/dist/css/bootstrap-theme.min.css'>
+		<link rel='stylesheet' href='/static/css/Stashy/Stashy.min.css'>
+		<link rel='stylesheet' href='/static/css/style.css'>
+		<script src='/static/js/bootstrap-3.0.3-dist/dist/js/bootstrap.min.js'></script>
+		<script src='/static/js/Stashy/Stashy.min.js'></script>
+		<script src='/static/js/history.js'></script>
+	</head>
+	<body>
+		<div style='width:100%;height:40px;background-color:black;position:fixed;top:0px;' >
+			<a href='/' style='color:white;padding:10px;float:left;height:40px;text-decoration:none;'><i class='fa fa-home'></i></a>
+			<div class='nav' style='float:left;position:absolute;left:40px;'></div>
+			<div style='height:100%;float:right;position:absolute;right:0px;background-color:black;'>
+				{if not user.is_anonymous}
+				<div class="dropdown" style='float:right;'>
+					<a data-toggle="dropdown" href="#" style='height:40px;display:block;color:white;text-decoration:none;padding:10px;'><i class='fa fa-gear'></i>设置</a>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" style='left: -160%;'>
+						{if user.is_superuser}
+						<li><a href='#' onclick='shutdown()'><i class='fa fa-power-off' style='padding:5px;'></i>关机</a></li>
+						<li><a href='/admin'><i class='fa fa-user'></i>用户管理</a></li>
+						{/if}
+						{if permissions.shareFolder.delete}
+							{if onDeletePage}
+						<li><a href='#' onclick='deleteFile();return false;'><i class='fa fa-times' style='padding:5px;'></i>删除文件</a></li>
+							{/if}
+						{/if}
+						{if permissions.shareFolder.change}
+						<li><a href='/setShareFolder'><i class='fa fa-cog' style='padding:5px;'></i>修改共享文件夹</a></li>
+						{/if}
+						<li><a href='/changePassword'><i class='fa fa-key' style='padding:5px;'></i>修改密码</a></li>
+						<li><a href='/doc'><i class='fa fa-question-circle'></i>帮助</a></li>
+						<li><a href='/login'><i class='fa fa-sign-out' style='padding:5px;'></i>注销</a></li>
+					</ul>
+				</div>
+				<a href='#' style='float:right;padding:10px;color:white;text-decoration:none;height:40px;'><i class='fa fa-user'></i>{user.name}</a>
+				{else}
+				<a href='/login' style='float:right;padding:10px;font-size:16px;color:white;text-decoration:none;height:40px;'><i class='fa fa-sign-in'></i>登录</a>
+				<a href='/register' style='float:right;padding:10px;font-size:16px;color:white;text-decoration:none;height:40px;'><i class='fa fa-user'></i>注册</a>
+				{/if}
+			</div>
+		</div>
+		<div class="modal fade" id="myBaseModal" tabindex="-1" role="dialog" aria-labelledby="myBaseModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title myBaseModal" id="myBaseModalLabel">登录提示</h4>
+					</div>
+					<div class="modal-body myBaseModal">
+						你需要在登陆后才能进行此操作。点击以下按钮跳转登陆。
+					</div>
+					<div class="modal-footer myBaseModal">
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+						<button id='baseModalBtn' type="button" class="btn btn-primary" onclick="window.location.href='/items/user/login?next='+document.URL;">登陆</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		<div style='margin-bottom:50px;'></div>
+			{>content}
+		<div class='domainName'></div>
+		<div class='qrcode hide' style='position:relative;width:100%;text-align:center;'>
+			<img style='width:430px;height:430px;margin:0 auto;' src='/static/img/qrcode.jpg'/>
+		</div>
+		<script>
+			function showqrcode(){
+				if($('.qrcode').hasClass('hide')){
+					$('.qrcode').removeClass('hide');
+				}else{
+					$('.qrcode').addClass('hide');
+				}
+				
+			}
+			
+			$('.qrcode').on('click',function(){
+				$('.qrcode').addClass('hide');
+			})
+			
+			function myNotify(title,content){
+				Stashy.Notify({
+					title : title,
+					content : content,
+					titleSize : 4,
+					style : "default",
+					contentType : "inline",
+					animDuration : "fast",
+					closeArea : "element"
+				}).toast("right", "top", true);
+			}
+			
+			function myAlert(title,content,footer){
+				$('.myBaseModal.modal-title').html(title);
+				$('.myBaseModal.modal-body').html(content);
+				if(footer != ''){
+					$('.myBaseModal.modal-footer').html(footer);
+				}else{
+					$('.myBaseModal.modal-footer').html('<button type="button" class="btn btn-default" data-dismiss="modal">知道了</button>');
+				}
+				
+				$('#myBaseModal').modal();	
+			}
+			
+			function shutdown(){
+				shutdown.confirm = function(){
+					console.log('clicked');
+					window.location.replace('/shutdown');
+				}
+				myAlert('关机','你确认要关机吗？',"<button type='button' class='btn btn-danger' data-dismiss='modal' onclick='shutdown.confirm()'>确认</button><button class='btn btn-primary' data-dismiss='modal'>取消</button>");
+			}
+			
+			function getname(){
+				csrf = $('input[name="csrfmiddlewaretoken"]').val();
+				$.post('/getCode',{
+					csrfmiddlewaretoken:csrf,
+				},function(data){
+					if(data.message == 'OK'){
+						var path = "shareyan.cn/cloud/"+data.name;
+						var ipv6Path = "shareyan.com/cloud/"+data.name;
+						$('.domainName').html("你可以在浏览器输入<a class='backHome' href='#'>"+path+"</a>来访问你的电脑.或者输入<a href='#' class='backHome'>"+ipv6Path+"</a>来通过ipv6访问自己的电脑<br>扫描二维码关注我们的微信<a href='#' onclick='showqrcode();return false;'><img style='width:32px;height:32px;' src='/static/img/qrcode.jpg'/></a>(点我放大)");
+					}
+					
+				})
+			}
+			
+			$(document).ready(function(){
+				getname();
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,10 @@
+<div class="jumbotron">
+	<h1>你没有此权限</h1>
+	<p>你没有权限进行操作，如果想要进行操作，请联系管理员获取相应权限后重试。
+	{if user.is_anonymous}
+		你可以在<a href='/login'>登录</a>后重试
+	{/if}
+	<br>
+	不知道怎么用？看看<a href='/doc'>用户手册</a>吧。
+	</p>
+</div>
