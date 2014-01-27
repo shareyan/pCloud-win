@@ -1,0 +1,42 @@
+﻿start serving on 6568
+no code found,return
+<Buffer 63 68 65 63 6b 55 70 64 61 74 65>
+command:checkUpdate:
+send:0
+socket closed
+<Buffer 6e 61 6d 65>
+command:name:
+send:0
+socket closed
+<Buffer 67 65 74 56 65 72 73 69 6f 6e>
+command:getVersion:
+send:1.1.3b
+socket closed
+<Buffer 67 65 74 50 6f 72 74>
+command:getPort:
+send:6568
+socket closed
+<Buffer 6e 65 77 73>
+command:news:
+send:update
+[ 'update' ]
+[]
+socket closed
+<Buffer 6e 65 77 73>
+command:news:
+send:0
+socket closed
+<Buffer 6e 65 77 73>
+command:news:
+send:0
+socket closed
+<Buffer 6e 65 77 73>
+command:news:
+send:0
+socket closed
+<Buffer 73 74 6f 70>
+command:stop:
+saving data before quiting
+5ee7e6ceec447a041539942d28ea2eec
+{"userList":[],"codeList":[],"shareFolderList":[],"sessionList":[],"news":[]}
+socket closed
