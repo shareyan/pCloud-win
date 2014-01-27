@@ -42,7 +42,7 @@ myDataBase.load(function(data){
 				var hashedMac = codes.hashEncode(mac);
 				hashedMacList.push(hashedMac);
 			});
-			if(hashedMacList.indexOf(key) == -1){
+			if(hashedMacList.length != 1 && hashedMacList.indexOf(key) == -1){
 				//key mac no match
 				//generate new key
 				var mac = macList[0];
@@ -172,6 +172,16 @@ function onreq(req,res){
 	myapp.port = port;
 	var resFlag = false;
 	//add static file server
+	//get install package
+	if(req.url.indexOf('/download/Winfly.msi') == 0){
+		resFlag = true;
+		var rootPath = __dirname.split('\\');
+		rootPath.splice(rootPath.length-2,2);
+		rootPath = rootPath.join('\\');
+		send(req,rootPath + '/updates/Winfly.msi')
+		.on('error', function(err){console.log(err);})
+		.pipe(res);
+	}
 	if(req.url.indexOf('/static/') == 0){
 		resFlag = true;
 		//static file

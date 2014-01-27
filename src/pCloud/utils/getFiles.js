@@ -2,31 +2,34 @@ var spawn = require('child_process').spawn;
 var fs = require('fs');
 
 function getPartitions(cb){
-	ls = spawn("C:\\Windows\\System32\\wbem\\wmic.exe",['logicaldisk','get','name']);
+	var cmd = spawn('C:\\WINDOWS\\system32\\cmd.exe');
 	var data = "";
 	var errorInfo = "";
-	ls.stdout.on('data', function (chunk) {
+	cmd.stdout.on('data', function (chunk) {
 		data += chunk;
 	});
 	
-	ls.stderr.on('data', function (chunk) {
+	cmd.stderr.on('data', function (chunk) {
 		errorInfo += chunk;
 	});
 
-	ls.on('error',function(error){
+	cmd.on('error',function(error){
 		console.log(error);
 	})
-
-	ls.on('close', function (code) {
+	
+	cmd.on('close', function (code) {
+		data = data.substring(data.indexOf("Name"));
 		var res = data.split('\r\r\n');
 		var target = [];
 		res.forEach(function(part){
-			if(part.indexOf(':') != -1){
+			if(part.indexOf(':') != -1 && part.indexOf('\n') == -1){
 				target.push(part.substring(0,part.indexOf(':')+1));
 			}
 		})
 		cb(target);
 	});
+	cmd.stdin.write("wmic logicaldisk get name\n");
+	cmd.stdin.end();
 }
 
 function getFiles(path,url,cb){
