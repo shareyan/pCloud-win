@@ -2,6 +2,7 @@
 	var html = app.getTemplate('home.html');
 	var context = {
 		content:html,
+		title:"主页",
 		homeClass:'active',
 		header:"<div class='jumbotron jumbotron-ad hidden-print'>"+
 				  "<div class='container' style='color:white;'>"+

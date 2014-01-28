@@ -302,6 +302,7 @@ function getMac(next){
 				result.push(macAddress);
 			}
 		}
+		if(!result)result=[];
 		next(result);
 	}
 	exec(command,function(err, stdout, stderr){

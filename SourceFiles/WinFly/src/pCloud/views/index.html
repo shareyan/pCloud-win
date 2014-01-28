@@ -32,7 +32,7 @@
 	}
 
 	function send(filename,filePath){
-		History.pushState({filename:filename,filePath:filePath,pathList:pathList}, filename,'?name='+filename);
+		History.pushState({filename:filename,filePath:filePath,pathList:pathList},'Winfly','?name='+filename);
 	}
 
 	History.Adapter.bind(window,'popstate',function(){ // Note: We are using statechange instead of popstate
@@ -150,7 +150,7 @@
 	function updateView(){
 		var template = "\
 		{@if file.isFile == 'True' || file.isFile == true}\
-		<tr><td><a style='display:block;color:black;font-size:14px;text-decoration:none;padding:10px;' href='#' onclick='return false;' data-url='$\{file.url}'><i style='padding:5px;' class='fa fa-file-text-o'></i>$\{file.name}</a></td>{if permissions.shareFolder.delete}\
+		<tr><td><a style='display:block;color:black;font-size:14px;text-decoration:none;padding:10px;' href='$\{file.url}' onclick='return false;' data-url='$\{file.url}'><i style='padding:5px;' class='fa fa-file-text-o'></i>$\{file.name}</a></td>{if permissions.shareFolder.delete}\
 		<td class='hide remove'><a href='#' data-name='$\{file.name}' data-path='$\{file.path}' onclick='return false;'><i class='fa fa-times text-danger'></i></td>\
 		{/if}<td><span>$\{file.ctime}</span></td><td><span>$\{file.size}</span></td></a></tr>\
 		{@else}\
