@@ -18,6 +18,7 @@ exports.register = function(app){
 			myUser.name = username;
 			myUser.setPassword(password);
 			myUser.objects.save();
+			login(myUser);
 			return app.JSON({message:'OK'});
 		});
 	}
@@ -197,6 +198,7 @@ exports.superUserReg = function(app){
 							myUser.setPassword(password);
 							myUser.is_superuser = true;
 							myUser.objects.save();
+							login(myUser);
 							return app.JSON({message:'OK'});
 						}
 						console.warn("something wrong with superUserReg");

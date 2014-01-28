@@ -87,6 +87,7 @@
 				if(data.message == 'OK'){
 					$('.reg-success').removeClass('hide');
 					$('.reg-success').append($("<span>你现在可以通过访问<a herf='#'>shareyan.cn/cloud/"+username+"</a>来访问你的电脑</span>"));
+					window.location.href = '/';
 					return;
 				}
 				if(data.reason == 'nameRepeat'){
