@@ -18,7 +18,7 @@ var order = require('./controls/order');
 //error process
 
 var accessLog = fs.createWriteStream('../../logs/node.access.log', { flags: 'a' })
-      , errorLog = fs.createWriteStream('../../logs/log.txt', { flags: 'a' });
+     , errorLog = fs.createWriteStream('../../logs/log.txt', { flags: 'a' });
 
 // redirect stdout / stderr
 process.__defineGetter__('stderr', function() { return errorLog });
@@ -189,7 +189,12 @@ function onreq(req,res){
 		console.log(req.url);
 		send(req, url.parse(req.url).pathname)
 		  .root('./public')
-		  .on('error', function(err){console.log(err);})
+		  .on('error', function(err){
+				console.log(err);
+				if(err.status == 404){
+					myapp.page404();
+				}
+			})
 		  .pipe(res);
 	}
 	if(req.url.indexOf('/share/') == 0){
@@ -205,7 +210,12 @@ function onreq(req,res){
 				console.log(req.url);
 				send(req, req.url)
 				  .root(shareFolder.path)
-				  .on('error', function(err){console.log(err);})
+				  .on('error', function(err){
+						console.log(err);
+						if(err.status == 404){
+							myapp.page404();
+						}
+					})
 				  .pipe(res);
 			}
 		})
