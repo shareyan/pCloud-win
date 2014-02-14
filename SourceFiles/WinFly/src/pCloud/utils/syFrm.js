@@ -67,7 +67,12 @@ exports.app = function app(req,res,data){
 			content:page404,
 			user:this.getUser(),
 		}
-		this.render('base.html',context);
+		var html = whiskers.render('base.html',context);
+		this.addHeader("Content-Length",Buffer.byteLength(html, 'utf8'));
+		this.addHeader("Content-Type","text/html;charset=utf8");
+		this.res.writeHead(404,this.header);
+		this.res.write(html);
+		this.res.end();
 	}
 	
 	this.view = function(){
