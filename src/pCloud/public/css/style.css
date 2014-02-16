@@ -21,15 +21,14 @@ body{
 	color:gray;
 }
 
-.table-responsive{
-	overflow-x:auto !important;
-}
+
 .nav>a:hover {
 	background-color:gray;
 }
 th {
 	height:30px;
 	padding:5px;
+	text-align:center;
 }
 th>a{
 	color:gray;
@@ -52,6 +51,7 @@ th>a:hover{
 
 td{
 	vertical-align:middle !important;
+	text-align:center;
 }
 
 td>a:hover{
@@ -91,4 +91,160 @@ a.backHome:hover{
 
 .jumbotron>p>a:hover{
 	background-color:wheat;
+}
+
+.navbar-inverse {
+background-image: none;
+background-image: none;
+}
+
+.jumbotron {
+	background:none;
+}
+
+ul.tutorial-list>li.align-left{
+	text-align:left;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+.tutorial-list>li>.bs-docs-section>h1{
+	width:100%;
+	text-align:center;
+}
+.bs-sidenav>li>a:hover{
+	background-color:hsl(175,60%,20%);
+}
+
+
+.bs-sidenav {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color:hsl(160,65%,45%);
+	border-radius: 5px;
+}
+
+.bs-sidenav>li>a{
+	color:white;
+}
+
+li>.nav>li>a{
+	font-size:small;
+	color:white;
+	padding-left:40px;
+}
+
+li>.nav>li>a:hover{
+	background-color:hsl(175,60%,20%);
+}
+
+li>.nav{
+	display:none;
+}
+
+li.active>.nav{
+	display:block;
+}
+
+.doc-img{
+	display:table;
+	text-align:center;
+}
+
+.doc-img>img{
+	display:block;
+	margin:20px 0px 5px;
+	width:100%;
+}
+.doc-img>span{
+	display:block;
+	width: 100%;
+	text-align: center;
+	font-size: small;
+	color: gray;
+	padding: 0px 0px 10px;
+}
+
+ul.doc{
+	margin: 10px 0px 10px 20px;
+}
+
+/*
+.bs-sidebar.affix {
+	position: static;
+}
+
+@media(min-width: 1200px){
+	.bs-sidebar.affix-bottom, .bs-sidebar.affix {
+		width: 263px;
+	}
+}
+
+@media(min-width: 992px){
+	.bs-sidebar.affix {
+		position: fixed;
+		top: 80px;
+	}
+	.bs-sidebar.affix, .bs-sidebar.affix-bottom {
+		width: 213px;
+	}
+}
+*/
+
+.affix-top{
+	position:static;
+}
+
+.affix{
+	position:static;
+}
+
+@media(min-width:992px){
+	.affix-top{
+		position:static;
+	}
+	
+	.affix{
+		position:fixed;
+		top:80px;
+		width: 250px;
+	}
+}
+
+ul{
+	list-style:none;
+}
+
+ul.doc>li{
+	padding:5px;
+}
+
+
+.insert-img{
+	max-width:800px;
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	height: auto;
+	padding: 4px;
+	line-height: 1.428571429;
+	background-color: hsl(0, 100%, 100%);
+	border: 1px solid hsl(0, 0%, 87%);
+	border-radius: 4px;
+	-webkit-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+.toTop{
+	position: fixed;
+	bottom: 100px;
+	right: 50px;
+	z-index: 100;
+	color:black;
+}
+
+.toTop:hover{
+	background:none;
 }
