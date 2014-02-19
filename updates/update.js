@@ -87,13 +87,13 @@ function update(version,port){
 									//all file has been updated
 									//restart main process
 									console.log("start main process");
-									spawn(__dirname+'/../src/pCloud.exe',[''],{
+									spawn(__dirname+'/../src/WinFly.exe',[''],{
 										cwd:__dirname+'/../src/',
 									});
 									//delete temp files
 									rimraf('./tmp',function(err){
 										if(err)console.log(err);
-										process.exit();
+										//process.exit();
 									})
 								}
 							})
@@ -112,13 +112,16 @@ function update(version,port){
 											//all file has been updated
 											//restart main process
 											console.log("start main process");
-											spawn(__dirname+'/../src/pCloud.exe',[''],{
+											spawn(__dirname+'/../src/WinFly.exe',[''],{
 												cwd:__dirname+'/../src/',
 											});
 											//delete temp files
 											rimraf('./tmp',function(err){
 												if(err)console.log(err);
-												process.exit();
+												//wait process start
+												setTimeout(function(){
+													//process.exit();
+												},2000);
 											})
 										}
 									});
@@ -314,6 +317,7 @@ function download(myurl,targetPath,cb){
 		
 		if(res.statusCode == '404'){
 			//the file has been deleted
+			req.abort();
 			deleteFileList.push(pathList.join('/')+'/'+filename);
 			return cb();
 		}
