@@ -93,7 +93,9 @@ function update(version,port){
 									//delete temp files
 									rimraf('./tmp',function(err){
 										if(err)console.log(err);
-										//process.exit();
+										setTimeout(function(){
+											process.exit();
+										},20000);
 									})
 								}
 							})
@@ -120,8 +122,8 @@ function update(version,port){
 												if(err)console.log(err);
 												//wait process start
 												setTimeout(function(){
-													//process.exit();
-												},2000);
+													process.exit();
+												},20000);
 											})
 										}
 									});
