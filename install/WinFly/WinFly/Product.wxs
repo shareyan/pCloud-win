@@ -60,6 +60,7 @@
     <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="!(loc.WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT)" />
     <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1" />
     <WixVariable Id="WixUIDialogBmp" Value=".\ui\welcome.bmp" />
+    <WixVariable Id="WixUIBannerBmp" Value=".\ui\bannrbmp2.bmp" />
     <Property Id="ARPPRODUCTICON" Value="WinFly32.exe" />
     <!--Property Id="TARGETDIR">D:\</Property-->
     <!--判断d盘是否存在,存在则设置默认路径为d盘,否则设为c盘。-->

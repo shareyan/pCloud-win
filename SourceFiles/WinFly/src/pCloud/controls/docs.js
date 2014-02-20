@@ -4,13 +4,6 @@
 		content:html,
 		title:"主页",
 		homeClass:'active',
-		header:"<div class='jumbotron jumbotron-ad hidden-print'>"+
-				  "<div class='container' style='color:white;'>"+
-					"<h1><i class='fa fa-cloud'></i> pCloud</h1>"+
-					"<p>让你的电脑变成你的私有云 —— pCloud 1.0.2a</p>"+
-					"<a class='btn btn-lg btn-primary btn-shadow bs3-link' href='http://pan.baidu.com/s/1gd1dh5L' target='_blank' role='button'><i class='fa fa-download'></i> pCloud 1.0.2a 下载</a>"+
-				  "</div>"+
-				"</div>",
 	}
 	return app.render('base-doc.html',context);
 }
