@@ -5,6 +5,7 @@
 		<link rel="icon" href="/static/img/logo.jpg" type="image/x-icon" />
 		<link rel="shortcut icon" href="/static/img/logo.jpg" type="image/x-icon" />
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="renderer" content="webkit">
 		<link rel="apple-touch-icon" sizes="114x114" href="/static/img/touch-icon-114x114.png" />
 		<link rel="apple-touch-icon" sizes="72x72" href="/static/img/touch-icon-72x72.png" />
 		<link rel="apple-touch-icon" href="/static/img/touch-icon-iphone.png" />
@@ -14,6 +15,15 @@
 		<link rel="apple-touch-icon-precomposed" href="/static/img/touch-icon-iphone.png" />
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<script>			
+			(function(){
+				//check browser version
+				var info = navigator.sayswho.split(' ');
+				if(info[0].indexOf('IE') != -1 && parseInt(info[1])<'10'){
+					myAlert("错误","你的浏览器版太过时了，请更新浏览器后再使用本软件,不然我会变得乱七八糟。。。<br><a href='https://www.google.com/intl/zh-CN/chrome/browser/index.html?hl=zh-CN&standalone=1#eula'>下载chrome</a>","<button class='btn btn-primary' data-dismiss='modal'>知道了</button>")
+				}
+			})();
+		</script>
 		<script src='/static/js/jquery-1.10.2.min.js'></script>
 		<script src='/static/js/juicer.js'></script>
 		<link rel='stylesheet' href='/static/css/font-awesome-4.0.3/css/font-awesome.min.css'>
@@ -101,14 +111,6 @@
 				if((tem= ua.match(/version\/([\.\d]+)/i))!= null) M[2]= tem[1];
 				return M.join(' ');
 			})();
-			
-			(function(){
-				//check browser version
-				var info = navigator.sayswho.split(' ');
-				if(info[0] == 'IE' && info[1]<'10'){
-					myAlert("错误","你的浏览器版太过时了，请更新浏览器后再使用本软件,不然我会变得乱七八糟。。。<br><a href='https://www.google.com/intl/zh-CN/chrome/browser/index.html?hl=zh-CN&standalone=1#eula'>下载chrome</a>","<button class='btn btn-primary' data-dismiss='modal'>知道了</button>")
-				}
-			})();
 		
 			function showqrcode(){
 				if($('.qrcode').hasClass('hide')){
@@ -163,7 +165,7 @@
 					if(data.message == 'OK'){
 						var path = "shareyan.cn/cloud/"+data.name;
 						var ipv6Path = "shareyan.com/cloud/"+data.name;
-						$('.domainName').html("你可以在浏览器输入<a class='backHome' href='#'>"+path+"</a>来访问你的电脑.或者输入<a href='#' class='backHome'>"+ipv6Path+"</a>来通过ipv6访问自己的电脑<br>扫描二维码关注我们的微信<a href='#' onclick='showqrcode();return false;'><img style='width:32px;height:32px;' src='/static/img/qrcode.jpg'/></a>(点我放大)<br>"+
+		 				$('.domainName').html("你可以在浏览器输入<a class='backHome' href='http://winfly.shareyan.cn/me'>winfly.shareyan.cn/me</a>来访问你的电脑。<br>"+"你可以在浏览器输入<a class='backHome' href='#'>"+path+"</a>来访问你的电脑.或者输入<a href='#' class='backHome'>"+ipv6Path+"</a>来通过ipv6访问自己的电脑<br>扫描二维码关注我们的微信<a href='#' onclick='showqrcode();return false;'><img style='width:32px;height:32px;' src='/static/img/qrcode.jpg'/></a>(点我放大)<br>"+
 						"还没安装Winfly,快点<a href='/download/Winfly.msi'>下载</a>安装吧");
 					}
 					
