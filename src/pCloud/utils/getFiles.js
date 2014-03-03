@@ -23,7 +23,12 @@ function getPartitions(cb){
 		var target = [];
 		res.forEach(function(part){
 			if(part.indexOf(':') != -1 && part.indexOf('\n') == -1){
-				target.push(part.substring(0,part.indexOf(':')+1));
+				try{
+					fs.readdirSync(part.substring(0,part.indexOf(':')+1));
+					target.push(part.substring(0,part.indexOf(':')+1));
+				}catch(e){
+					console.log('not a vailable disk');
+				}
 			}
 		})
 		cb(target);
