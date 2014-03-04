@@ -149,14 +149,13 @@ li.active>.nav{
 }
 
 .doc-img{
-	display:table;
 	text-align:center;
 }
 
 .doc-img>img{
 	display:block;
 	margin:20px 0px 5px;
-	width:100%;
+	max-width:100%;
 }
 .doc-img>span{
 	display:block;
