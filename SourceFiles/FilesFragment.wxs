@@ -3,179 +3,179 @@
     <Fragment>
         <DirectoryRef Id="INSTALLFOLDER">
             <Directory Id="dir69CF91AD90A945A1589CAD8DC07F2D41" Name="logs">
-                <Component Id="cmpC401C431A73879FC01E44E0BF52B2E36" Guid="{3BA5F762-11D5-4B7C-A503-E2ED950D6555}">
+                <Component Id="cmpC401C431A73879FC01E44E0BF52B2E36" Guid="{F2CAF6DA-AC34-46B1-A188-2750F4C186D3}">
                     <File Id="fil56C24D5E4F729560457249DBA9FF9FE7" KeyPath="yes" Source="$(env.WinFlyHeat)\logs\log.txt" />
                 </Component>
-                <Component Id="cmpF39EA8487AA387F086F99B571FB63987" Guid="{D1479125-64C3-4B5D-AB4F-CEF4C5FE386E}">
+                <Component Id="cmpF39EA8487AA387F086F99B571FB63987" Guid="{0B2E678F-74DA-4F4D-8F94-65A378593C9C}">
                     <File Id="filF4C2EAB935E8F75328B596E7832FB93E" KeyPath="yes" Source="$(env.WinFlyHeat)\logs\node.access.log" />
                 </Component>
-                <Component Id="cmp160F35F1F7D999AC2224FE65CB61F855" Guid="{2561607F-616E-4C1E-9D1C-E080C91957DC}">
+                <Component Id="cmp160F35F1F7D999AC2224FE65CB61F855" Guid="{2641B9C3-D878-4B47-A811-FA399F8937A0}">
                     <File Id="filA1BAF89073372A391CC0E1673F65DFDF" KeyPath="yes" Source="$(env.WinFlyHeat)\logs\port.txt" />
                 </Component>
             </Directory>
             <Directory Id="dir68884791FD0AEB58F6D01383446E6DD4" Name="src">
-                <Component Id="cmpFD7D19E4FF2E5727A162FBE5C4470A72" Guid="{572CAD6B-57BC-4BAE-85BC-70B877059369}">
-                    <File Id="fil58AAFE67D07498E222632D8E135276FE" KeyPath="yes" Source="$(env.WinFlyHeat)\src\Winfly.exe" />
+                <Component Id="cmp6D97C6BE2DD2E1E9AF36BA5876FFABC0" Guid="{97DC039A-A3A6-47DA-9755-B216A67EA48B}">
+                    <File Id="filB4388967085A813D59FDB0B70E4C520D" KeyPath="yes" Source="$(env.WinFlyHeat)\src\WinFly.exe" />
                 </Component>
                 <Directory Id="dirFC83EAED2F6244946100B778BE80D0F0" Name="bin">
-                    <Component Id="cmp660D54EB99EDF830568CB6D88F2C94E1" Guid="{E5C3CF74-EC4A-4A73-9370-75ADAD97E0E8}">
+                    <Component Id="cmp660D54EB99EDF830568CB6D88F2C94E1" Guid="{B5206104-8358-4B7E-B1E8-AD9EDFD72B1A}">
                         <File Id="fil241A2C78DCEE2EB2330C6B398B51F64E" KeyPath="yes" Source="$(env.WinFlyHeat)\src\bin\playwav.exe" />
                     </Component>
                 </Directory>
                 <Directory Id="dirE25EB48F740D8E073934A64A7785A19A" Name="pCloud">
-                    <Component Id="cmp73D317DDFDE457CFA6D816009B8A5164" Guid="{5960BA0E-16B8-446E-A633-A37F411050BC}">
+                    <Component Id="cmp73D317DDFDE457CFA6D816009B8A5164" Guid="{6AEE1D00-24C4-459D-AE68-9A026AB5CF66}">
                         <File Id="fil2065C043C707FBF8BB5CE7ADEBB972E3" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\app.js" />
                     </Component>
-                    <Component Id="cmpEDFA293BB2929C80EEEDCEB032F8AB33" Guid="{C7EF84DF-4923-4137-BB71-05C26B81FE56}">
+                    <Component Id="cmpEDFA293BB2929C80EEEDCEB032F8AB33" Guid="{6DFA9694-C70A-4AE3-8B98-D7C8A0037B59}">
                         <File Id="fil4855ACEA7FB6E9FB82A53BF4A298AF15" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node.exe" />
                     </Component>
                     <Directory Id="dir7AC45E4023B5B3BBAD27163D878FF23A" Name="config">
-                        <Component Id="cmp6CAC1887ED70F8444BBB8C2503D99D3A" Guid="{7ED7AF83-0E45-4C7E-992B-C12817962F64}">
+                        <Component Id="cmp6CAC1887ED70F8444BBB8C2503D99D3A" Guid="{6E1C5547-1A17-4676-BF10-96C7FEE25C47}">
                             <File Id="fil15C4A8504BEBD3B3DF5D77F95C78719A" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\config\configs.js" />
                         </Component>
-                        <Component Id="cmpFC090CEEFBDA3110E1AA9E3500339DCC" Guid="{9CBDE21D-4E9D-45AA-949A-16142734EF9F}">
+                        <Component Id="cmpFC090CEEFBDA3110E1AA9E3500339DCC" Guid="{6B4CA1FF-3158-4AE2-A8B9-A07ACC492BF6}">
                             <File Id="fil6F66212AD0C1BB6E68D5E2C736EF206F" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\config\route.js" />
                         </Component>
                     </Directory>
                     <Directory Id="dir2703E7D62C16DF0DCA3B919A26FE18F6" Name="controls">
-                        <Component Id="cmp1B8A0184F2895EF49B5B07D7CB6D3E46" Guid="{529D78BA-21C0-494C-AADE-C8ECCC728388}">
+                        <Component Id="cmp1B8A0184F2895EF49B5B07D7CB6D3E46" Guid="{DB3AE703-D702-4BC8-A19A-231B6684FC66}">
                             <File Id="filC723448EF259211F7450F913E2D093BE" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\controls\docs.js" />
                         </Component>
-                        <Component Id="cmp9E47FF75C7419B326C9D48BD79D796A3" Guid="{4BAB97D8-8AE8-4B12-BBA3-D3D427A689BF}">
+                        <Component Id="cmp9E47FF75C7419B326C9D48BD79D796A3" Guid="{C605664F-97D2-4214-BB23-BFC3BFEEA761}">
                             <File Id="fil30C2BB52F2AAB56B6B595F1B914D4BAE" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\controls\index.js" />
                         </Component>
-                        <Component Id="cmp75526491CDFB803215A030B7E8961399" Guid="{651F48B2-45CC-4B0E-9678-A45FADA5997B}">
+                        <Component Id="cmp75526491CDFB803215A030B7E8961399" Guid="{CE8D6F49-FA26-4D31-9C3F-6F15BD68D82D}">
                             <File Id="filC14654E5E6D04F5BD8951DC5084E0C81" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\controls\order.js" />
                         </Component>
-                        <Component Id="cmp1AF3A5CE0C9815C6F0060143C5AB2A38" Guid="{95B05B32-59B2-469B-B474-759371546344}">
+                        <Component Id="cmp1AF3A5CE0C9815C6F0060143C5AB2A38" Guid="{5B049B92-64FC-43A9-A74D-404B565E5375}">
                             <File Id="filC0AED74E5AB0440E64E6FA0430ADB0D1" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\controls\permissions.js" />
                         </Component>
-                        <Component Id="cmp1EC47F60298946D1849BCAB9F2F06B5D" Guid="{97C1A826-DBE3-46A7-B641-FC346D861381}">
+                        <Component Id="cmp1EC47F60298946D1849BCAB9F2F06B5D" Guid="{DCB6A46F-CDBB-4171-9C58-C0E6ACF31000}">
                             <File Id="filE16EEDB873EA4A0E1AAC15EAFC60190A" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\controls\shareFolder.js" />
                         </Component>
-                        <Component Id="cmpF955EDA8CFAD5AA084E284FD8630EAB0" Guid="{2FA56525-7C3D-4278-B545-46C53F088818}">
+                        <Component Id="cmpF955EDA8CFAD5AA084E284FD8630EAB0" Guid="{F4EB7258-C319-4DD7-9AAF-67EEE9F6BE44}">
                             <File Id="fil4D90CDC8EEBAC1B4B56AABCA99723C54" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\controls\system.js" />
                         </Component>
-                        <Component Id="cmp5B618783E2C21A751866F11E45EFA39F" Guid="{FA9D9D66-5972-474C-83C3-08D0BE9169B6}">
+                        <Component Id="cmp5B618783E2C21A751866F11E45EFA39F" Guid="{E7EE1BD6-34A2-4BB2-93CE-563505DC9FC9}">
                             <File Id="fil54011B64836D32D2FFCDFFA2BDDA0AEF" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\controls\test.js" />
                         </Component>
-                        <Component Id="cmpFDC72FB873B99ACEA3BC9E9CE940FC15" Guid="{A1815D9E-0AA0-49A2-9062-41856B9552B0}">
+                        <Component Id="cmpFDC72FB873B99ACEA3BC9E9CE940FC15" Guid="{F0BC4DCD-C25E-4493-BB2E-93B2C0A89893}">
                             <File Id="filA68D646563140436EC0812185E779783" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\controls\user.js" />
                         </Component>
                         <Directory Id="dirA19ABE8B1BE21D35534FCC463FE57EAA" Name="middlewares">
-                            <Component Id="cmpD4172D7C5FBB09654C58F4E71B3E2E47" Guid="{6FBF8225-F234-46EE-A851-7903DDA440B5}">
+                            <Component Id="cmpD4172D7C5FBB09654C58F4E71B3E2E47" Guid="{191610D0-E18F-476E-86CF-D0F11F019029}">
                                 <File Id="fil0940C6B7DD05A943F21DAEB8B48B61A5" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\controls\middlewares\middlewares.js" />
                             </Component>
-                            <Component Id="cmpB02D9811B129BDC3E6D795A76D04963C" Guid="{9BE1F273-B11E-42D6-81C8-56FE9166B54A}">
+                            <Component Id="cmpB02D9811B129BDC3E6D795A76D04963C" Guid="{52614F2B-6856-4700-995D-8A9E1220B18B}">
                                 <File Id="fil6FED3477C552DDA93F0069AC4E46FF4E" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\controls\middlewares\session.js" />
                             </Component>
-                            <Component Id="cmp3663E039134184AE66B3E70B7760F01A" Guid="{1E7CB019-7AA2-48E8-9361-7A027C4D9417}">
+                            <Component Id="cmp3663E039134184AE66B3E70B7760F01A" Guid="{6B53520F-ED88-4A54-AF35-B2EA9CFC2AD0}">
                                 <File Id="fil45D6FF769F163D3582D7D56CC93F108E" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\controls\middlewares\user.js" />
                             </Component>
                         </Directory>
                     </Directory>
                     <Directory Id="dir82B5FD9E30811E004FEEC689A847D1B1" Name="models">
-                        <Component Id="cmp3235FF7240993ACB2195A1BBECA30411" Guid="{5FA9F759-BA51-43ED-9C66-F8DD0AC955A5}">
+                        <Component Id="cmp3235FF7240993ACB2195A1BBECA30411" Guid="{7B3B6547-0016-47F9-9140-70835F5615A4}">
                             <File Id="filD41F32143F122134FE5078CD769AB3D6" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\models\code.js" />
                         </Component>
-                        <Component Id="cmp7E67F70FD077E14BFE8433E2626C3861" Guid="{7A6312C6-250B-40F7-8BEF-C46E8213A318}">
+                        <Component Id="cmp7E67F70FD077E14BFE8433E2626C3861" Guid="{F35B34FA-5C9D-480F-8CE7-C46D3D764EB7}">
                             <File Id="fil08994258E2DFD16D0E318DAB18AB37BB" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\models\db" />
                         </Component>
-                        <Component Id="cmp0D8B3C1B67650D44B25F88329FED5EA6" Guid="{2982B6E5-C236-4C7F-9842-2937E203BFA9}">
+                        <Component Id="cmp0D8B3C1B67650D44B25F88329FED5EA6" Guid="{D909663C-DF21-4B29-90E4-22675091FBCD}">
                             <File Id="fil0623A31E24AE406969E6907EFAAC3F35" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\models\key" />
                         </Component>
-                        <Component Id="cmpA216C4D26D63BA3021B1CBBB96D6D1BA" Guid="{85F8376B-DF1C-4E1E-9ADC-181D2C65A99B}">
+                        <Component Id="cmpA216C4D26D63BA3021B1CBBB96D6D1BA" Guid="{32E3D4AD-FBF0-4C50-A15A-91A2033C7CDE}">
                             <File Id="filD319ABBD849004C083622533001D6A27" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\models\session.js" />
                         </Component>
-                        <Component Id="cmpB579C566626EE4C09C78F9675844F76F" Guid="{CF348A93-8270-409E-94E7-375033184C66}">
+                        <Component Id="cmpB579C566626EE4C09C78F9675844F76F" Guid="{20F0E12D-01A6-4B03-BA7E-3E968D1C817E}">
                             <File Id="filCF1250630F7CDE58336A47C6284F715E" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\models\shareFolder.js" />
                         </Component>
-                        <Component Id="cmp7A831F41E281939C679EB8924FC81922" Guid="{0E980158-08ED-44A9-B544-FB04506EEC50}">
+                        <Component Id="cmp7A831F41E281939C679EB8924FC81922" Guid="{A2C3F478-17E1-4973-A585-26CB3EFEDE73}">
                             <File Id="fil9C3F7108167070ACC2C53B140C73087F" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\models\user.js" />
                         </Component>
                     </Directory>
                     <Directory Id="dirB62DD68BA0DBFE2F2CD883F345AA9E78" Name="node_modules">
                         <Directory Id="dir5133941BD388EC339B19B9E92314654F" Name="formidable">
-                            <Component Id="cmp533D25AB0F13657233B2DEA430E3188C" Guid="{637ADBEC-9F53-458B-91D4-DBBE0EA5BF2B}">
+                            <Component Id="cmp533D25AB0F13657233B2DEA430E3188C" Guid="{A2B1BCC2-F01A-40FD-8B60-4E5B0850D84D}">
                                 <File Id="filFC2A6AE89115E4CAFB06D92CBD0E67DB" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node_modules\formidable\index.js" />
                             </Component>
                             <Directory Id="dir488D37C9DA8AAA003F88C16D834AF14E" Name="lib">
-                                <Component Id="cmpF64B584BE261B8BB613746D89B69C106" Guid="{55A8C4DD-BE54-448A-873D-BEB92C7C451F}">
+                                <Component Id="cmpF64B584BE261B8BB613746D89B69C106" Guid="{55B0FF41-EF95-4DB7-9EAB-EE41F9194636}">
                                     <File Id="filF636F776CF931151037EE412CC11C385" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node_modules\formidable\lib\file.js" />
                                 </Component>
-                                <Component Id="cmpCD516C62D128C600F69C50AA85AE8E75" Guid="{63C69587-4438-4F58-B893-73C50544E8BB}">
+                                <Component Id="cmpCD516C62D128C600F69C50AA85AE8E75" Guid="{CEDD074E-F31E-422D-92F1-68CF760BFA93}">
                                     <File Id="fil014D964A1E9A6B4F2881DF47E98A6262" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node_modules\formidable\lib\incoming_form.js" />
                                 </Component>
-                                <Component Id="cmp715A03596A5A8B5DE697FBB6F86261F6" Guid="{5BFF0F6F-1DDA-49BC-93A0-CB137CFA20DB}">
+                                <Component Id="cmp715A03596A5A8B5DE697FBB6F86261F6" Guid="{CD3E208E-CE71-490D-842A-87B64EA8B55F}">
                                     <File Id="fil5A372BFA2841D075E99FC0D8E63D387F" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node_modules\formidable\lib\index.js" />
                                 </Component>
-                                <Component Id="cmp40C35765AEA1177DF16E6E36BE20BB0B" Guid="{6928313E-B958-45ED-AF29-50D6490817B6}">
+                                <Component Id="cmp40C35765AEA1177DF16E6E36BE20BB0B" Guid="{D8C834AD-481A-42D7-96CB-A11F65DFDFE2}">
                                     <File Id="filD9D640C14675DC047DFC167F8A30FE18" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node_modules\formidable\lib\json_parser.js" />
                                 </Component>
-                                <Component Id="cmp9D5B84D8CC13383F62DC93BD0AEDC421" Guid="{5D9BD6ED-1F44-4EE2-B5A6-91D0DA62E181}">
+                                <Component Id="cmp9D5B84D8CC13383F62DC93BD0AEDC421" Guid="{39A1F4AA-B7AF-423B-9142-3D873E61F3A5}">
                                     <File Id="fil8EE252DA090BB63FD9A950DF2794D4A4" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node_modules\formidable\lib\multipart_parser.js" />
                                 </Component>
-                                <Component Id="cmp2B841E0CDACE116FE067C663272570CD" Guid="{C834C968-F0AD-4572-BE1B-759EDF0DFBD9}">
+                                <Component Id="cmp2B841E0CDACE116FE067C663272570CD" Guid="{FBE82E7E-EF38-4865-AB09-E582C0014155}">
                                     <File Id="filA0D245AFC73C89F195BBB04CDA891908" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node_modules\formidable\lib\octet_parser.js" />
                                 </Component>
-                                <Component Id="cmp556ACA88D39E910F72255B60BE1D863B" Guid="{E1B7C747-26C9-46F6-A9F5-05676A5A91F8}">
+                                <Component Id="cmp556ACA88D39E910F72255B60BE1D863B" Guid="{3F1E5D4F-524F-485E-8A82-F3C754F3788F}">
                                     <File Id="filF9D5F6432B80F0CCB275A934A4F47389" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node_modules\formidable\lib\querystring_parser.js" />
                                 </Component>
                             </Directory>
                         </Directory>
                         <Directory Id="dir9FC3C32733A1A87BABA0CA2594B9F49B" Name="send">
-                            <Component Id="cmpB91C6C693E80E5AA6B0B8E7BCAA9F972" Guid="{CAC41CAA-3B89-4F6E-B50B-B5A7D118A68A}">
+                            <Component Id="cmpB91C6C693E80E5AA6B0B8E7BCAA9F972" Guid="{372ED4A5-BE84-4AE8-87CD-5689E65D3C53}">
                                 <File Id="filB0E46E0A10E3B1E16AC980E0E2D74930" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node_modules\send\index.js" />
                             </Component>
                             <Directory Id="dir903EB67AF230366497E844CAC685E96F" Name="lib">
-                                <Component Id="cmpA058A5F199C0017CE48D0CDEEA3C5F2A" Guid="{CD1B0897-943E-4B23-A9BB-6956A789FABE}">
+                                <Component Id="cmpA058A5F199C0017CE48D0CDEEA3C5F2A" Guid="{514CDDEF-3081-4504-B77C-727179D91516}">
                                     <File Id="fil31E97A74711806715E68CBCB41F0571F" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node_modules\send\lib\send.js" />
                                 </Component>
-                                <Component Id="cmp7FF8BC0F7E830FD1FE5506AFA1300E1A" Guid="{4437BAA1-3344-42BF-B217-58A927E5945D}">
+                                <Component Id="cmp7FF8BC0F7E830FD1FE5506AFA1300E1A" Guid="{47C84075-F619-4BED-A67F-5A7058C114C3}">
                                     <File Id="fil691B7FA6453C9E3A2D6FA4367002F070" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node_modules\send\lib\utils.js" />
                                 </Component>
                             </Directory>
                             <Directory Id="dir5DF0CDAEED7DF353BF1D3ED9B606CE2B" Name="node_modules">
                                 <Directory Id="dir38FBA67FD6580928A49A1BF29C7F0EEF" Name="fresh">
-                                    <Component Id="cmpC5B1CC33BBD83E72BF5F580241AFA779" Guid="{D0A8CFA5-BDA9-4C61-A79D-9F928403F28B}">
+                                    <Component Id="cmpC5B1CC33BBD83E72BF5F580241AFA779" Guid="{8EDAE1D2-4DCC-4073-BCE5-B69116CE88D1}">
                                         <File Id="filEADF4835DEFE0DA27994DE20366DD0E0" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node_modules\send\node_modules\fresh\index.js" />
                                     </Component>
                                 </Directory>
                                 <Directory Id="dir98F18C6CD7988E7624F95D821C31B025" Name="mime">
-                                    <Component Id="cmp2B17E7DFA2FD02AAC3AEC1E631207FC2" Guid="{BEC003EE-B519-454B-9929-27B632F5076D}">
+                                    <Component Id="cmp2B17E7DFA2FD02AAC3AEC1E631207FC2" Guid="{3218BF3F-D208-4410-8903-313ED4816E87}">
                                         <File Id="filE5B580071F110293C4B2320925870599" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node_modules\send\node_modules\mime\mime.js" />
                                     </Component>
-                                    <Component Id="cmpDDE250510620F99733D9EE17D076ED99" Guid="{DEA00F20-C915-45B6-A188-E4AE25472706}">
+                                    <Component Id="cmpDDE250510620F99733D9EE17D076ED99" Guid="{F22D9E13-0505-4A99-8E76-1A6AD33EB454}">
                                         <File Id="filAD1BD3C8C08FA2F02AC93448E3C6749D" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node_modules\send\node_modules\mime\package.json" />
                                     </Component>
                                     <Directory Id="dir7F008F1391976AF09FCA44D13262DEC1" Name="types">
-                                        <Component Id="cmpDA6B364516EDADFCFFBC0D4BAB6F57E5" Guid="{B4488882-A79C-495F-B148-DA5A80A046A8}">
+                                        <Component Id="cmpDA6B364516EDADFCFFBC0D4BAB6F57E5" Guid="{5B99FA68-1B7F-4830-9D70-6F75ACAC4A33}">
                                             <File Id="filCFB148F2F9B68532C96AAEE172FE4D5F" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node_modules\send\node_modules\mime\types\mime.types" />
                                         </Component>
-                                        <Component Id="cmpA24700BD77CB7CA19B9C3FA0B55700C4" Guid="{BA9ED6C2-B474-4AB3-A7EE-D2FAF8C68B40}">
+                                        <Component Id="cmpA24700BD77CB7CA19B9C3FA0B55700C4" Guid="{02B314B2-2796-49AE-9A96-113987DC91E9}">
                                             <File Id="fil13B2D94CE453ECD338C1A51A3D49E788" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node_modules\send\node_modules\mime\types\node.types" />
                                         </Component>
                                     </Directory>
                                 </Directory>
                                 <Directory Id="dirDC39CDBDE839F83245B83267043A9482" Name="range-parser">
-                                    <Component Id="cmp62A8CE68B08B9822D9C46645A5F89324" Guid="{D0DF9F4F-71A1-488F-A401-C99EA6B5AB99}">
+                                    <Component Id="cmp62A8CE68B08B9822D9C46645A5F89324" Guid="{A1EE1D2C-ADBD-47F4-AC94-6314BE10C693}">
                                         <File Id="fil137CEF511AC032BD6EE4AEEE4BA7A5D7" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node_modules\send\node_modules\range-parser\index.js" />
                                     </Component>
                                 </Directory>
                             </Directory>
                         </Directory>
                         <Directory Id="dir322F821BA6D1B5C13364D238B55D58D7" Name="whiskers">
-                            <Component Id="cmp30EA4DE9AF4F4988DE44E7F5810D2982" Guid="{0684E065-E3EB-4689-B314-6A0C44147124}">
+                            <Component Id="cmp30EA4DE9AF4F4988DE44E7F5810D2982" Guid="{1636CD5E-0C91-4539-8AC0-36BB9686D3E0}">
                                 <File Id="filCAEA2CFCF83A43EBF01ACF4CE0BA89B4" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node_modules\whiskers\minify.js" />
                             </Component>
-                            <Component Id="cmp51E1C71EA553205D3745453D704CE22A" Guid="{EC8DD657-998F-44C1-883F-78E69A73DEC8}">
+                            <Component Id="cmp51E1C71EA553205D3745453D704CE22A" Guid="{33B54D71-595E-4815-A707-938589E3A1FD}">
                                 <File Id="fil5241DFE3F75AD33A43BCE383C14DD01C" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node_modules\whiskers\package.json" />
                             </Component>
                             <Directory Id="dirE5D396D96B53C7B6A08D3E869C954C83" Name="lib">
-                                <Component Id="cmp437647633471E69F847B5803F5745965" Guid="{4E859A62-EFB6-4FFF-82E5-34AFFC0698FE}">
+                                <Component Id="cmp437647633471E69F847B5803F5745965" Guid="{38B8580E-9CAA-4EDA-B605-8D45451FD234}">
                                     <File Id="fil62886422C062963340BF146ACA75B53C" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node_modules\whiskers\lib\whiskers.js" />
                                 </Component>
-                                <Component Id="cmp51A6CB3940CA5EAD1D43DC315CBB559E" Guid="{72DF482E-5E4D-4E3B-AC23-E9D3F5A54314}">
+                                <Component Id="cmp51A6CB3940CA5EAD1D43DC315CBB559E" Guid="{1B36DBBA-9A3B-4A48-8439-BC1C22D9D179}">
                                     <File Id="fil42E6480B146B630FEA0D669136E25BB9" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\node_modules\whiskers\lib\__express.js" />
                                 </Component>
                             </Directory>
@@ -183,30 +183,30 @@
                     </Directory>
                     <Directory Id="dirE03FC91C22D1C15F294B18C41F5AEEBD" Name="public">
                         <Directory Id="dir24D195DB58789215E1B8DCC4AC42DCB7" Name="css">
-                            <Component Id="cmp8D7FE4F33FC9C6804E6415B7CF48AB06" Guid="{B58753AD-B44B-4B6F-B9BF-019461B3E4C9}">
+                            <Component Id="cmp8D7FE4F33FC9C6804E6415B7CF48AB06" Guid="{BE62C7CA-B93D-4DB9-87EE-D4893F0A0D9E}">
                                 <File Id="filC4FEA9B49DE7BF7FD1DAD0AE8F1553EC" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\css\pages.css" />
                             </Component>
-                            <Component Id="cmp630C8BC42D64C2C009AFD624F25F9988" Guid="{76E7A31D-7534-4387-BDD4-115A1A0E1565}">
+                            <Component Id="cmp630C8BC42D64C2C009AFD624F25F9988" Guid="{F3669393-0D77-4D79-80F2-1FDD201DE7F7}">
                                 <File Id="fil0AB0E49A156783FDEB5052CB1E106BC2" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\css\style.css" />
                             </Component>
                             <Directory Id="dir2906560D91DCDFAE7E9981A8C71C9F31" Name="bootstrap-3.0.3-dist">
                                 <Directory Id="dirB10534C92519D1D38A19B532C2912253" Name="dist">
                                     <Directory Id="dirC7933F9895970C03726E98996EA24131" Name="css">
-                                        <Component Id="cmpB62750726C9A00A3EECC18440EE7A7C0" Guid="{594B3AB4-2F4D-4EA0-9A41-B10C61CD6D39}">
+                                        <Component Id="cmpB62750726C9A00A3EECC18440EE7A7C0" Guid="{E3CCA550-BABD-42F4-BF91-E0BFAECCDA96}">
                                             <File Id="fil78B817CD300858083FE6016B733BB3F7" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\css\bootstrap-3.0.3-dist\dist\css\bootstrap-theme.min.css" />
                                         </Component>
-                                        <Component Id="cmp2C1E49EBBE9502C0D8483985F6693AFD" Guid="{87AAB2EB-E4C0-4672-A5A8-E8AF865B0F7A}">
+                                        <Component Id="cmp2C1E49EBBE9502C0D8483985F6693AFD" Guid="{E417BBC9-9D8A-4306-9B94-D78C76984754}">
                                             <File Id="filE44C4367CA4B7BB9B6AB0E9E9E3D6CE0" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\css\bootstrap-3.0.3-dist\dist\css\bootstrap.min.css" />
                                         </Component>
                                     </Directory>
                                     <Directory Id="dir502A5B78602D3F2EDC142512DFE8E3A3" Name="fonts">
-                                        <Component Id="cmpB3BEB3F0448F5128B31E26C9F7400AFC" Guid="{985A77E3-CEA3-415A-A634-4FCA0CF13957}">
+                                        <Component Id="cmpB3BEB3F0448F5128B31E26C9F7400AFC" Guid="{6AB8FE08-78ED-40BB-968B-545E1E2FE18C}">
                                             <File Id="filA6583E90206AAAB13796B7E018FD7471" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\css\bootstrap-3.0.3-dist\dist\fonts\glyphicons-halflings-regular.eot" />
                                         </Component>
-                                        <Component Id="cmpC060AE531373C1525CA1C2A9C5B338E4" Guid="{98E21D73-4613-4927-94EA-B64FAFAE30BA}">
+                                        <Component Id="cmpC060AE531373C1525CA1C2A9C5B338E4" Guid="{4348CE1A-B98C-4480-92E0-B7993C7F8483}">
                                             <File Id="fil3B6D7D46118537F29E40751CE0F1EBDC" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\css\bootstrap-3.0.3-dist\dist\fonts\glyphicons-halflings-regular.svg" />
                                         </Component>
-                                        <Component Id="cmp62B584888A7C6A9B4C822D38F00E5416" Guid="{0E0038F0-32CA-4911-8D5A-37FBDBFAF30A}">
+                                        <Component Id="cmp62B584888A7C6A9B4C822D38F00E5416" Guid="{3C2F4696-3336-472D-9DF0-82C2404B136D}">
                                             <File Id="fil75AEE54375A14F21B07BD445237A163D" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\css\bootstrap-3.0.3-dist\dist\fonts\glyphicons-halflings-regular.woff" />
                                         </Component>
                                     </Directory>
@@ -214,306 +214,306 @@
                             </Directory>
                             <Directory Id="dir004A4B1B285F7B63FE8D222DCA29E757" Name="font-awesome-4.0.3">
                                 <Directory Id="dir8BDB0153780E5C5EB03D30A91E1F8A21" Name="css">
-                                    <Component Id="cmpA8EC87BDC764E9A99993403CD76FEDC5" Guid="{39A537EA-4536-48A1-B1F1-8D05740777B9}">
+                                    <Component Id="cmpA8EC87BDC764E9A99993403CD76FEDC5" Guid="{3BAAE8B2-E2B6-4114-BA57-6F564489114D}">
                                         <File Id="filC63403CC6F771AE4492A9C3B4B8E8A46" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\css\font-awesome-4.0.3\css\font-awesome.css" />
                                     </Component>
-                                    <Component Id="cmp6375C95525B397735DC5BA6724773483" Guid="{D89EE464-88BB-44A3-90DD-926E992076D8}">
+                                    <Component Id="cmp6375C95525B397735DC5BA6724773483" Guid="{1685CAC5-D208-400F-B591-479F55C97F32}">
                                         <File Id="filE1BD383959A51E0AF6C639F40E613137" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\css\font-awesome-4.0.3\css\font-awesome.min.css" />
                                     </Component>
                                 </Directory>
                                 <Directory Id="dir6B885F48EBAD3A8DC087231DCB2702E2" Name="fonts">
-                                    <Component Id="cmpCD1AFBA1FF327B8B4892696E232F2814" Guid="{B8C9716E-9E1A-4623-A2DF-5F3398371B5A}">
+                                    <Component Id="cmpCD1AFBA1FF327B8B4892696E232F2814" Guid="{C2A073C6-85CE-43D9-B5A8-DE97B0344F51}">
                                         <File Id="fil91DF5509BEA3D195BEA25B09E77D7B75" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\css\font-awesome-4.0.3\fonts\fontawesome-webfont.eot" />
                                     </Component>
-                                    <Component Id="cmp09AEE07A8BBA2BF78BDDBBD14EB463EF" Guid="{32DB1377-140E-4537-A5CD-4F3BCED79F9C}">
+                                    <Component Id="cmp09AEE07A8BBA2BF78BDDBBD14EB463EF" Guid="{A43D21C8-D988-4F0F-A278-93CA25D090C7}">
                                         <File Id="fil7B5F0EF351DF35B03208112A7A247CB7" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\css\font-awesome-4.0.3\fonts\fontawesome-webfont.svg" />
                                     </Component>
-                                    <Component Id="cmp66492907D4320E974DD9889BD1A3852B" Guid="{EB623EC7-1094-4F6F-B8B2-F7CB23F68CEA}">
+                                    <Component Id="cmp66492907D4320E974DD9889BD1A3852B" Guid="{FC6340F7-EDA2-40AA-96D1-197FAB37CBEA}">
                                         <File Id="fil31147BFA7F129BC3BEE2699CC9735A49" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\css\font-awesome-4.0.3\fonts\fontawesome-webfont.woff" />
                                     </Component>
                                 </Directory>
                             </Directory>
                             <Directory Id="dirD8FF1AFED9697C8842D31656F454AE80" Name="Stashy">
-                                <Component Id="cmp85B4949A8D0D707E920C79E610EFF7CE" Guid="{D56ECA20-6075-4E52-88F3-A8A4CE945986}">
+                                <Component Id="cmp85B4949A8D0D707E920C79E610EFF7CE" Guid="{B1E21C6C-03BF-4302-A85D-EDF25A6683F0}">
                                     <File Id="fil7761080054328E18C91FFFA13F42CCB7" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\css\Stashy\Stashy.min.css" />
                                 </Component>
                             </Directory>
                         </Directory>
                         <Directory Id="dirBC3A79C876A25040084A0324D97EED3A" Name="img">
-                            <Component Id="cmpF8263D33253435A51AE1CCC98F8720C4" Guid="{4299EFDB-0B1F-43AA-8881-2DB77539E338}">
+                            <Component Id="cmpF8263D33253435A51AE1CCC98F8720C4" Guid="{940F3379-C7D8-42D4-A6E0-56C8BFA10FAC}">
                                 <File Id="fil9D3FA87DDC4BC579C95E4B05652F3751" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\logo.jpg" />
                             </Component>
-                            <Component Id="cmpA1C628138FAA1EC519A84311A24FA7C4" Guid="{1B382B85-4BF6-4193-B73A-16D8A7EB59C8}">
+                            <Component Id="cmpA1C628138FAA1EC519A84311A24FA7C4" Guid="{A633F770-2BC4-4FD0-ACC3-B7F0E8669F0D}">
                                 <File Id="fil8AE3149AF6474408154474C29326E1F0" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\qrcode.jpg" />
                             </Component>
-                            <Component Id="cmpDDDD94D3D0B9A18B4A8324E59A1DCCFB" Guid="{69B9A0E6-AD20-4775-A387-6BC73729E56B}">
+                            <Component Id="cmpDDDD94D3D0B9A18B4A8324E59A1DCCFB" Guid="{9F4FE1C1-116A-41EA-A50B-5D97A348D003}">
                                 <File Id="filBA1971ACB76EA5173D7AC595C7335CED" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\Thumbs.db" />
                             </Component>
-                            <Component Id="cmpE33A29B6CC6D0EED877933BE86C8C211" Guid="{1B751C9D-7AF0-4746-9BB0-00412198B5B4}">
+                            <Component Id="cmpE33A29B6CC6D0EED877933BE86C8C211" Guid="{16B5C703-B842-4595-B3BC-6ACC0502B78C}">
                                 <File Id="fil32DAC75F30E11751716296A1D53BC01F" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\touch-icon-114x114.png" />
                             </Component>
-                            <Component Id="cmp4C4885FD60630EC3D599BC6EA1CB4BF1" Guid="{B5280186-2E09-4E4A-BF4C-BB395574AC06}">
+                            <Component Id="cmp4C4885FD60630EC3D599BC6EA1CB4BF1" Guid="{257DEEDD-8B8A-41D8-9D21-F1CFA56CD42E}">
                                 <File Id="fil32319B420762BA4E13CC16F45BC7CCA5" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\touch-icon-72x72.png" />
                             </Component>
-                            <Component Id="cmp1CA854CFE32A420098557E11B0EA88DB" Guid="{F5696B5C-12BF-40A1-9E97-AB4862BEF33B}">
+                            <Component Id="cmp1CA854CFE32A420098557E11B0EA88DB" Guid="{4EADFC36-C7D3-4303-A615-34A31498DFB6}">
                                 <File Id="filAF6ACE4E269031276759C2179F4C96BF" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\touch-icon-iphone.png" />
                             </Component>
                             <Directory Id="dir184D407370ED052FC7530A1623421B77" Name="docs">
-                                <Component Id="cmpF061ED2B30F2EA7FF601AB2CD49ED5AA" Guid="{4514B979-B029-44EF-962E-B600D53225F7}">
+                                <Component Id="cmpF061ED2B30F2EA7FF601AB2CD49ED5AA" Guid="{377EA1D4-D1D2-469E-B152-970CF7FE457F}">
                                     <File Id="filA3A4CD67EEFB3EEEC3CFD9E8629A0DEE" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\access-addr.PNG" />
                                 </Component>
-                                <Component Id="cmpA0D87536BA3924179B5D0D4F063C6D4A" Guid="{3B7B8A71-1263-4847-9E2E-31D7C9E085E5}">
+                                <Component Id="cmpA0D87536BA3924179B5D0D4F063C6D4A" Guid="{F3A50450-AB69-43FD-B14F-C1AA03DA62EC}">
                                     <File Id="filD19A28AB7D4644E2C1A7918FC82E0E58" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\access-ip.PNG" />
                                 </Component>
-                                <Component Id="cmp28BACCAD1ACED59E984B4E003EFE9619" Guid="{A5498873-963D-4E4D-AB83-164FEC0EF787}">
+                                <Component Id="cmp28BACCAD1ACED59E984B4E003EFE9619" Guid="{B83C6D2A-A2F5-436F-AF81-DC939BCFC6BF}">
                                     <File Id="fil267A7D3340BCD6B470C825DA2D0EF6EC" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\access-ipv6-1.png" />
                                 </Component>
-                                <Component Id="cmp7C404D034BE39A71502CC2E332F24155" Guid="{C5974A44-C225-4B6B-A535-0400B383AEC1}">
+                                <Component Id="cmp7C404D034BE39A71502CC2E332F24155" Guid="{270A4389-82A5-47FB-B057-E4F7E55DACD8}">
                                     <File Id="fil6FFCCA5EC1DD65F3E1911E1C39032A7A" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\computer-halt.PNG" />
                                 </Component>
-                                <Component Id="cmpC70DCEC5DC4C7063A9D9099998826C42" Guid="{4CC0645D-8197-4682-9305-9A121C6BAF5B}">
+                                <Component Id="cmpC70DCEC5DC4C7063A9D9099998826C42" Guid="{8A486CDB-4AE3-4789-A817-8B1C1CBA7D09}">
                                     <File Id="filA3768F61FFEC032C71E4404AEC0EE7AC" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\crossPlatform.jpg" />
                                 </Component>
-                                <Component Id="cmp69603937B2776FCAB96371FF77D4B634" Guid="{7D1F505E-D549-46B5-A247-B6EFCAF61BE3}">
+                                <Component Id="cmp69603937B2776FCAB96371FF77D4B634" Guid="{3CF823DE-A9CF-43C6-B5BC-950F311D9936}">
                                     <File Id="fil58534F1BD5AEACFBCD32B96354CE7FC1" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\fast-download.png" />
                                 </Component>
-                                <Component Id="cmp7128679694362135A08767D5382AA34A" Guid="{BFF48520-A37A-4245-A44A-F8CFA3350577}">
+                                <Component Id="cmp7128679694362135A08767D5382AA34A" Guid="{0D79AAED-2647-448E-84F6-6670C6A1FABA}">
                                     <File Id="fil843322A85372A1F5A1A693DE442BE1ED" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\fav.png" />
                                 </Component>
-                                <Component Id="cmp37B32C9C2D8482B8BE4B1070DA2D5CFA" Guid="{D02390B0-062B-47AB-AA3E-0E8FBEF18059}">
+                                <Component Id="cmp37B32C9C2D8482B8BE4B1070DA2D5CFA" Guid="{91BBC958-59B2-40DE-BA5C-33B340BAADD9}">
                                     <File Id="fil8A7AEA45488D7401F3A13485E22AB3EE" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\files-access-1.PNG" />
                                 </Component>
-                                <Component Id="cmpDAA73E4CA6B680A5790EB2889566F98B" Guid="{20F28F9F-A0D8-4AA5-8ABA-35064C79011E}">
+                                <Component Id="cmpDAA73E4CA6B680A5790EB2889566F98B" Guid="{F9A58954-7BB2-4206-A7BF-4CDE7224DA0B}">
                                     <File Id="filFBDDB68153B014766E764AF8D23872F1" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\files-access-2.PNG" />
                                 </Component>
-                                <Component Id="cmp87146384A8CEB37F15D375F779C77807" Guid="{9FA4681C-CFC1-4C35-8A70-716609184D9D}">
+                                <Component Id="cmp87146384A8CEB37F15D375F779C77807" Guid="{CBBB1801-9153-440F-864B-2E48CAAA155C}">
                                     <File Id="fil52D6A633D3C79C85063801C8BD77CF55" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\files-delete.PNG" />
                                 </Component>
-                                <Component Id="cmpACC29818B192C75F2935F639FB5771C2" Guid="{2A371304-0DFE-4A78-83F5-3EBEE5ADE313}">
+                                <Component Id="cmpACC29818B192C75F2935F639FB5771C2" Guid="{BD70FFBC-280E-4390-9426-A1DC133DC206}">
                                     <File Id="filF1E039CF7AD6FBC96CF7ED2473B17552" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\files-setFolder-1.PNG" />
                                 </Component>
-                                <Component Id="cmpD742A98D01959CC1724C6005B8819BEB" Guid="{45406BE0-9A73-4E1E-A5A3-79536497F8D9}">
+                                <Component Id="cmpD742A98D01959CC1724C6005B8819BEB" Guid="{E3AD9ECC-760B-4B07-AF11-C5A7BAAA276B}">
                                     <File Id="filB9922F23D4D591B182A4B1487BFB369E" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\files-setFolder-2.PNG" />
                                 </Component>
-                                <Component Id="cmpB33D4B3521EA237AB9AD5B2B93431915" Guid="{7B94D7DD-3038-4BD8-B8FC-F866B294DB2C}">
+                                <Component Id="cmpB33D4B3521EA237AB9AD5B2B93431915" Guid="{590E0D79-F97B-4236-A3F4-BC081F943C49}">
                                     <File Id="filEAFAA55CE26CFF080984EB24556BCF59" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\first-start.png" />
                                 </Component>
-                                <Component Id="cmp8E694AA56F74197A012684FAB3263DD6" Guid="{7AE1101A-B216-4A02-8027-1D8005AE760C}">
+                                <Component Id="cmp8E694AA56F74197A012684FAB3263DD6" Guid="{555B0F93-EDE1-470C-B544-C8D98E2201B6}">
                                     <File Id="fil353ED89DCCA9F80AD2F5EC2025D440DB" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\index-first.png" />
                                 </Component>
-                                <Component Id="cmpB42A37E64DA38728D254301696F04C9D" Guid="{6E7B461F-6459-4A59-B87B-2ABA9F56228C}">
+                                <Component Id="cmpB42A37E64DA38728D254301696F04C9D" Guid="{FE43FF24-BB94-4F2D-9386-57E7CF2380BA}">
                                     <File Id="filD53B469F4DB381BB6CF0F282AE276B7F" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\index-second.png" />
                                 </Component>
-                                <Component Id="cmpD176DF7A581E602DE311F2519C75DFF0" Guid="{A420DE15-927E-47E2-A608-73AD637BC7FD}">
+                                <Component Id="cmpD176DF7A581E602DE311F2519C75DFF0" Guid="{47112BCF-77C4-435D-A3FF-BF874A533941}">
                                     <File Id="fil85E71B2449FEFD7B726ECA4CBEFEC3B8" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\movie-1080.png" />
                                 </Component>
-                                <Component Id="cmpDBEBC33BB9FCCB66E27CE587ADBFC5AB" Guid="{9D921894-3DBF-4AC1-B7F7-BE82B9BEE569}">
+                                <Component Id="cmpDBEBC33BB9FCCB66E27CE587ADBFC5AB" Guid="{8E7298BC-54D1-4171-AFCA-310D1437A936}">
                                     <File Id="filD42EE3FC46889BB9001D060B065A9F39" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\movie-blue-ray.png" />
                                 </Component>
-                                <Component Id="cmp8F7C906EB19E07D17433B19473DAF170" Guid="{1C19B1FE-8A06-473F-86F1-1A37D864ADD5}">
+                                <Component Id="cmp8F7C906EB19E07D17433B19473DAF170" Guid="{4B068084-D33D-4A79-96EA-5587A36DE677}">
                                     <File Id="fil909C48778DDD3387B6219BDCDABBE0F4" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\play-online.png" />
                                 </Component>
-                                <Component Id="cmpF3A318D851807443AFB4E8105EB38F23" Guid="{56DFBEC4-8F86-4A11-A224-9CB9BF31C837}">
+                                <Component Id="cmpF3A318D851807443AFB4E8105EB38F23" Guid="{805EB5B6-DE69-41FB-AD02-4DF36E59C37A}">
                                     <File Id="fil1C9EA34DA1BF9B9026ACE47C7EB57767" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\reg-superuser.png" />
                                 </Component>
-                                <Component Id="cmpD2A1CCF8AAF397A96F2BAE8A3DE634AB" Guid="{166B7195-1274-40A8-B3C3-BBE9ED9CEDC2}">
+                                <Component Id="cmpD2A1CCF8AAF397A96F2BAE8A3DE634AB" Guid="{62640F33-845F-4E03-A145-4B57C4AAB23D}">
                                     <File Id="fil4C52386C3DD9FA4A67C47B3F7083EC08" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\set-folder.png" />
                                 </Component>
-                                <Component Id="cmpD44E0D5729586AAC3F4867C8BD40BA5A" Guid="{6AFBCE7C-432B-48B9-A6B1-7C45662B2837}">
+                                <Component Id="cmpD44E0D5729586AAC3F4867C8BD40BA5A" Guid="{4CFB1EA3-2104-4010-BAC7-217C8DB22430}">
                                     <File Id="fil239FC9FE57A0DB50C67E831D52445BC7" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\Thumbs.db" />
                                 </Component>
-                                <Component Id="cmp3EAC280E6130E5C2DB9F4E63C6284CA2" Guid="{8430F4DB-0E1B-4958-B986-2579D76A6F57}">
+                                <Component Id="cmp3EAC280E6130E5C2DB9F4E63C6284CA2" Guid="{DAADB70C-D1B5-4AA4-A086-7F53EA36335D}">
                                     <File Id="filD6F26D88E13EF904EE6E6C740F4A4EE6" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\ui.png" />
                                 </Component>
-                                <Component Id="cmpB73F07AB89C8EC075695EFF32D5B0E94" Guid="{8EF7109B-851A-46A3-AC3C-77AE7115A644}">
+                                <Component Id="cmpB73F07AB89C8EC075695EFF32D5B0E94" Guid="{9B056228-3A3A-4CFF-81C5-F9C98E588A6F}">
                                     <File Id="filC72C61CD064271543E6B3492FDAA249B" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\useage.jpg" />
                                 </Component>
-                                <Component Id="cmp99023C4C6D7C0DFA4317DF607507E68D" Guid="{B45BA282-E492-47E4-8D8A-C5139C5B18AA}">
+                                <Component Id="cmp99023C4C6D7C0DFA4317DF607507E68D" Guid="{E9344E89-9541-4CCE-AA3F-3DB1C268CFCB}">
                                     <File Id="filAD7FCBCE6ED0DCF5CDF81864EAC97889" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\user-permission-1.PNG" />
                                 </Component>
-                                <Component Id="cmpF6FF2B84660378AF23F975EA7E9081BE" Guid="{2519937E-2A29-43D2-976C-E0A8DDFF2887}">
+                                <Component Id="cmpF6FF2B84660378AF23F975EA7E9081BE" Guid="{04CB205C-6AA2-45FD-80A0-0E4047EA9DD2}">
                                     <File Id="fil2FC3B5E84A2FF033B8690C83A1DC4D12" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\user-permission-2.PNG" />
                                 </Component>
-                                <Component Id="cmpBBD932262ABB855D1F12EBE723FD361D" Guid="{5A50D904-F5DF-4CBB-A63C-84CF19E20E83}">
+                                <Component Id="cmpBBD932262ABB855D1F12EBE723FD361D" Guid="{BAB76F85-340A-44C3-ABB9-6739CFA5B627}">
                                     <File Id="fil0D60E8D53AF8EBB4F253A7EB9D7963F3" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\user-reg.PNG" />
                                 </Component>
-                                <Component Id="cmp98CF5A08F8B369345AF6DCD6771CEB95" Guid="{FC8DE9C7-A64B-4A0A-B490-B6342B0EF510}">
+                                <Component Id="cmp98CF5A08F8B369345AF6DCD6771CEB95" Guid="{9FBA3592-92CB-435F-8803-2715DD9D3587}">
                                     <File Id="filA04CC36AD2D0684762E4C8750FA667DA" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\user-superuser-1.PNG" />
                                 </Component>
-                                <Component Id="cmpD03743E1576EA4F936A019ADD56C4B5C" Guid="{8EBA174E-905B-4ABC-8C16-4089E688845A}">
+                                <Component Id="cmpD03743E1576EA4F936A019ADD56C4B5C" Guid="{1265CBB5-16C3-4E61-8D47-8C8A4293564C}">
                                     <File Id="fil58BD4BB3F938E9554952192AA2FC07C5" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\img\docs\user-superuser-2.png" />
                                 </Component>
                             </Directory>
                         </Directory>
                         <Directory Id="dirB9ED60F74A320D283BA94C5ADC9AFD0C" Name="js">
-                            <Component Id="cmp455F40A0370392209E1B8D3BE3A89F1A" Guid="{CECD5D8A-C2C9-40CE-A68A-41DD12374A2F}">
+                            <Component Id="cmp455F40A0370392209E1B8D3BE3A89F1A" Guid="{1C173CFA-445F-49E1-9021-25CF909C488F}">
                                 <File Id="filBCC96D68DC94749ADAE8C0971D0A665C" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\js\application.js" />
                             </Component>
-                            <Component Id="cmp723A569D3AF52B77411CCE0BB7767AB6" Guid="{FFFD0BCE-79C7-4A73-940F-8EA9C3E0610D}">
+                            <Component Id="cmp723A569D3AF52B77411CCE0BB7767AB6" Guid="{26130FE3-03A4-495F-95D2-4AC185BB71D8}">
                                 <File Id="fil39982DE564712F87DD4A1ACED7AE374D" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\js\bootstrap-wysiwyg.js" />
                             </Component>
-                            <Component Id="cmp8C451B7B25FDCD53A4DB7346C8CE4B01" Guid="{114E008A-7E4C-4319-82C4-AB038877B39E}">
+                            <Component Id="cmp8C451B7B25FDCD53A4DB7346C8CE4B01" Guid="{517C08EA-9069-4CC2-90C1-0D62C6CE7170}">
                                 <File Id="fil8575AD3A43940931277B4292D5FBEACE" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\js\history.js" />
                             </Component>
-                            <Component Id="cmpE0913D182B439F43594D92ED5ECF0964" Guid="{5E112804-BDBD-43C4-B085-3258A422A81C}">
+                            <Component Id="cmpE0913D182B439F43594D92ED5ECF0964" Guid="{70857D25-14EF-43AD-9C32-41A9DB017AF8}">
                                 <File Id="fil494A482C8BBB2FF938A7496CAE3781C9" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\js\jquery-1.10.2.min.js" />
                             </Component>
-                            <Component Id="cmp39271F64C7BE4470D34CFF190C1A0D03" Guid="{8AF98A93-BE91-49C6-9A33-BD152F5D2BF4}">
+                            <Component Id="cmp39271F64C7BE4470D34CFF190C1A0D03" Guid="{38C5BC0D-2A8C-4144-9E56-B958440917FF}">
                                 <File Id="fil00D9E241F4FB8C515CF4C2E262BAC1F2" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\js\jquery.hotkeys.js" />
                             </Component>
-                            <Component Id="cmp20D6A01BE414143E1A15F2520ECC651D" Guid="{A8CEF409-23D5-4FF0-A16F-7EC32CF21C20}">
+                            <Component Id="cmp20D6A01BE414143E1A15F2520ECC651D" Guid="{2E06307A-E9F1-41D9-8E88-C052496B13EF}">
                                 <File Id="filFAD850EBAB7C618FC97A707C35E802E2" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\js\juicer.js" />
                             </Component>
                             <Directory Id="dirAF63300D4EEA8302261920EC22B878D2" Name="bootstrap-3.0.3-dist">
                                 <Directory Id="dirC4644D6D18B6B68CDECCF448B3918CF1" Name="dist">
                                     <Directory Id="dir0B6C486802015D2AB5AECA04F94580BA" Name="js">
-                                        <Component Id="cmpFB6921F9D69850C5562C51752EFEEF19" Guid="{C0FC6E71-4A68-42EA-B1B0-CBF091C9D173}">
+                                        <Component Id="cmpFB6921F9D69850C5562C51752EFEEF19" Guid="{E511240D-45A5-45D3-BBB3-65CB2112C7AA}">
                                             <File Id="filE7F3087033EDB388DE41E1193F0D4A90" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\js\bootstrap-3.0.3-dist\dist\js\bootstrap.js" />
                                         </Component>
-                                        <Component Id="cmp3A637BF04159092687D3082C06BAA6D7" Guid="{055F54EE-AE4D-48D7-836E-4773B95EF4F6}">
+                                        <Component Id="cmp3A637BF04159092687D3082C06BAA6D7" Guid="{09AB9B4B-5313-41F5-80E0-AFDB261C73F2}">
                                             <File Id="fil09245522D5EFD1385729EE78D54617C9" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\js\bootstrap-3.0.3-dist\dist\js\bootstrap.min.js" />
                                         </Component>
                                     </Directory>
                                 </Directory>
                             </Directory>
                             <Directory Id="dir77FD4893E319270A2F00AAED93C1ACB1" Name="Stashy">
-                                <Component Id="cmp9DFC8C5DC655274FFA308D6C882748C0" Guid="{4EA6CA6C-58B4-4BF3-8E91-F936FB55A5FB}">
+                                <Component Id="cmp9DFC8C5DC655274FFA308D6C882748C0" Guid="{8A90EFF7-EE59-4FE3-9B97-ADEFD8A9AC25}">
                                     <File Id="fil4284B73CEC6643B4612AA789153D451A" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\public\js\Stashy\Stashy.min.js" />
                                 </Component>
                             </Directory>
                         </Directory>
                     </Directory>
                     <Directory Id="dir146DB0AAB7B7E1830A5A2F129D5D37D3" Name="utils">
-                        <Component Id="cmpA5106067077F39BBD0A52663126DEF64" Guid="{864F12B0-5BBD-4CC9-B1CC-F0AA707EB4F3}">
+                        <Component Id="cmpA5106067077F39BBD0A52663126DEF64" Guid="{CD688458-929D-4ADD-8E58-E6CC24685A9F}">
                             <File Id="filE3EF50947BFED1A7DA107E3EBD454A7A" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\utils\code.js" />
                         </Component>
-                        <Component Id="cmp0A0A6448247C16292BA90F5C7224916C" Guid="{07044145-8FF0-469F-8471-A5BCAECE4EBE}">
+                        <Component Id="cmp0A0A6448247C16292BA90F5C7224916C" Guid="{939582B4-2AF3-4E5C-8463-F775D9E3D58B}">
                             <File Id="fil8AB6C998D2DF6CC97A1F0D11F466CDDF" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\utils\freePort.js" />
                         </Component>
-                        <Component Id="cmp18E623DD6598AA987B76A0B7B12EAF88" Guid="{B0CC2F78-2DE4-4171-A95F-2FE1423E271E}">
+                        <Component Id="cmp18E623DD6598AA987B76A0B7B12EAF88" Guid="{460E8683-630C-44A7-A3A2-97A48E1EE899}">
                             <File Id="filC4DE622736739DF73A70EDB4B8A66D5E" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\utils\getFiles.js" />
                         </Component>
-                        <Component Id="cmpDBC25D2C07AB9E91EB3D815C615EA43C" Guid="{F023B6BB-7919-44E1-A14F-AA00A8B1FCA6}">
+                        <Component Id="cmpDBC25D2C07AB9E91EB3D815C615EA43C" Guid="{2A4DE985-CC23-4B2F-95DA-D5065B3E92B5}">
                             <File Id="fil8BD6C5816A28032FF05E3F5C84A80BBC" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\utils\loadFiles.js" />
                         </Component>
-                        <Component Id="cmpC60EA0D67281DEEEBFC0471DA5DAF2A3" Guid="{018403FB-C10A-4173-A92F-EFB92937B533}">
+                        <Component Id="cmpC60EA0D67281DEEEBFC0471DA5DAF2A3" Guid="{C9D545EC-26B3-4217-9D4F-6B4541E20F02}">
                             <File Id="filA70B3441F959E528F8CB5C880CD474DF" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\utils\syFrm.js" />
                         </Component>
-                        <Component Id="cmp145187BA7AEE6E6D8043C3560B5501AC" Guid="{0BE76B02-3C96-4588-AB50-5A42F91C85F5}">
+                        <Component Id="cmp145187BA7AEE6E6D8043C3560B5501AC" Guid="{D0666617-2277-42F4-93A4-AFFEC7946D76}">
                             <File Id="fil66E71F73C53DE4CD112C1EBEB2DF76ED" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\utils\sys.js" />
                         </Component>
                         <Directory Id="dirB8F19305FAD5106F04C5DE2D1D8AECDB" Name="cmdutils">
-                            <Component Id="cmpBA923283B5962E38F8AC96B0C3A3E33F" Guid="{23543A29-F312-4DDA-8F07-A7EECE5A5218}">
+                            <Component Id="cmpBA923283B5962E38F8AC96B0C3A3E33F" Guid="{3E65C2A3-4BDA-4CD9-B8FE-9EAE8FA5EB7D}">
                                 <File Id="filA3B498AAA423D8B9681FDDFB81FC1305" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\utils\cmdutils\Bin.exe" />
                             </Component>
-                            <Component Id="cmp671AA85BFEC6C0696D63294663DBF4F8" Guid="{B39AE9F3-1CFC-4D27-90F9-98E6FF27F105}">
+                            <Component Id="cmp671AA85BFEC6C0696D63294663DBF4F8" Guid="{0DDB420C-11E2-4FEC-A11A-7469A70ED6AD}">
                                 <File Id="fil03F5070F3A8E2A7CB238F3FC17A4FD16" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\utils\cmdutils\CmdUtils-Source.zip" />
                             </Component>
-                            <Component Id="cmp11988C421B7DF8C8F2B875A749008048" Guid="{519E54BB-D641-4445-9D56-3D40F824D7E6}">
+                            <Component Id="cmp11988C421B7DF8C8F2B875A749008048" Guid="{888FEC01-2AAD-4066-A271-091B2C0FFB0D}">
                                 <File Id="fil1128014DF3B3DC8D34B84888ABD08C84" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\utils\cmdutils\Context.exe" />
                             </Component>
-                            <Component Id="cmpE2C289FD016372C0C81D6DC64A8FFEDD" Guid="{A65ECEF2-09C9-4CAD-B478-F651115CAA8D}">
+                            <Component Id="cmpE2C289FD016372C0C81D6DC64A8FFEDD" Guid="{5A84D129-FED4-4BC6-9AD8-DF393BF94FA5}">
                                 <File Id="fil4E39294E436F9F799B782667741BC31B" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\utils\cmdutils\FixP.exe" />
                             </Component>
-                            <Component Id="cmp743953B62BC56FFDEDB5D10B4281D6A5" Guid="{927E28A4-AA5A-4DF2-9935-FCAA26209CF1}">
+                            <Component Id="cmp743953B62BC56FFDEDB5D10B4281D6A5" Guid="{D3EA4CD4-F91E-4FF7-B4EF-C95C424F0591}">
                                 <File Id="filB124A7CA747E3E0B2144055530AEF395" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\utils\cmdutils\GPL.txt" />
                             </Component>
-                            <Component Id="cmpAD8368933566E91DFFBFBF42C5B08304" Guid="{747414F8-B43F-40AA-B4DC-41CFB4A0713D}">
+                            <Component Id="cmpAD8368933566E91DFFBFBF42C5B08304" Guid="{51C6D4AC-8BD9-41EC-AF16-177D3F516820}">
                                 <File Id="fil53469D8F4DDEA182691010C8A43FCCC7" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\utils\cmdutils\PropsFor.exe" />
                             </Component>
-                            <Component Id="cmp76C35287BF91010DAD9AA69F43317AB2" Guid="{0218CE8B-7611-4862-8360-B5A323BCF4CD}">
+                            <Component Id="cmp76C35287BF91010DAD9AA69F43317AB2" Guid="{B33D3BC2-3A2E-425B-A655-22B480EABD42}">
                                 <File Id="fil7048D3652AB740924379C86AFCE49138" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\utils\cmdutils\ReadMe.txt" />
                             </Component>
-                            <Component Id="cmpF164A60151893E174442DA470ACC6A62" Guid="{A1578BA9-F5DE-45E2-9579-B65483379ABF}">
+                            <Component Id="cmpF164A60151893E174442DA470ACC6A62" Guid="{65BCBBD2-C391-42B4-9345-1F3E66579DCC}">
                                 <File Id="fil4EA1B7B5C1BDC1377442DDD2DA3E2651" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\utils\cmdutils\Recycle.exe" />
                             </Component>
                         </Directory>
                     </Directory>
                     <Directory Id="dir7B43C7E7647CA8DF49EF442DD1A3A3B8" Name="views">
-                        <Component Id="cmpACCCE5A2A4C2148C05E413106ED6E0E8" Guid="{B6961DC8-45F8-477C-9F99-3054DF62E508}">
+                        <Component Id="cmpACCCE5A2A4C2148C05E413106ED6E0E8" Guid="{2E037F67-6AFD-4E93-BC94-FC79E2B5926D}">
                             <File Id="filCB03EC60E3CF770F3D6615B9ADF69511" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\views\404.html" />
                         </Component>
-                        <Component Id="cmpE5672ABF27ABE1AAE0AA95115861746A" Guid="{2DF2BACE-F8A8-4F16-A08C-1F5E3704D11E}">
+                        <Component Id="cmpE5672ABF27ABE1AAE0AA95115861746A" Guid="{B55DB860-B0BE-4DDF-B575-FE804802923A}">
                             <File Id="fil43D759220D2837D923D653CE390FCBB9" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\views\about.html" />
                         </Component>
-                        <Component Id="cmp50F3D8F9C91C58DE05A4E3C2D3FBE244" Guid="{4333D86D-B406-48F9-BF41-338B7C19D0C6}">
+                        <Component Id="cmp50F3D8F9C91C58DE05A4E3C2D3FBE244" Guid="{2A0E70F4-B8CF-4D66-B7A1-F1757F77A6CD}">
                             <File Id="fil649BF787EE0C981DAFF62E28C3DDC81B" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\views\admin.html" />
                         </Component>
-                        <Component Id="cmpD9C053ABFD89C08729236A7D108B3E70" Guid="{7D39E69B-5CC3-480B-9D98-E28877414D31}">
+                        <Component Id="cmpD9C053ABFD89C08729236A7D108B3E70" Guid="{E342E1CE-F48B-4276-8662-AB5F7F6DD9A0}">
                             <File Id="filB03E0A8DD967037C4F5A00C82ED6BF16" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\views\base-doc.html" />
                         </Component>
-                        <Component Id="cmpBE8AB2C53F4894F9342E003E28658687" Guid="{ECF3B3E9-7D47-4834-8BB1-556DB8A89122}">
+                        <Component Id="cmpBE8AB2C53F4894F9342E003E28658687" Guid="{F5C8FF5D-15D8-4A27-8FCF-B239F85B37CA}">
                             <File Id="filFE5B23919F009D5FE0DB9DB8A5338ADD" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\views\base.html" />
                         </Component>
-                        <Component Id="cmpB0BE1C1D94E79044F00318D66DA126C5" Guid="{04DBC2AC-6FD5-4E02-9F46-31F63606CFF8}">
+                        <Component Id="cmpB0BE1C1D94E79044F00318D66DA126C5" Guid="{9A41FA90-2879-47C9-8890-A8AC73E75BB2}">
                             <File Id="filF2BA4EFD883C2BD7A2E76AE3F3BDA13A" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\views\changePassword.html" />
                         </Component>
-                        <Component Id="cmpE9AC127E04A70734470EF7E519259092" Guid="{6E3B3D47-2B5A-4E9C-B219-9F35B7102A76}">
+                        <Component Id="cmpE9AC127E04A70734470EF7E519259092" Guid="{6B94FA25-354E-4748-AA02-57A4426AFF64}">
                             <File Id="fil0EA2B6AAD5BF487A0BDCCB558D0E4CD9" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\views\community.html" />
                         </Component>
-                        <Component Id="cmp81D258FC79EF8E23D96BF4C25DB10630" Guid="{0CA7ABC5-9EED-45C0-9AA1-55A1267EAF2B}">
+                        <Component Id="cmp81D258FC79EF8E23D96BF4C25DB10630" Guid="{B54A3D6D-01AF-4909-89BF-38A0AC423DD6}">
                             <File Id="filFDEA9A92EF50F57BC954EB2F56EE9BC5" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\views\getStarted.html" />
                         </Component>
-                        <Component Id="cmpB9DF7C6A78919D717D165758E1A31493" Guid="{2CA4D3B0-F5CC-4D7C-A47D-9D720D21886C}">
+                        <Component Id="cmpB9DF7C6A78919D717D165758E1A31493" Guid="{C3BEE52C-7FA9-4AA2-AF9E-5639AEC202A4}">
                             <File Id="fil03249CFB5DA7EE0E628E7156F886AFC8" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\views\home.html" />
                         </Component>
-                        <Component Id="cmp7CB0ACAEC66A5ECA104AF7CED0ED0AA2" Guid="{22A3BD39-F3D9-4114-8A85-717431A3F5BF}">
+                        <Component Id="cmp7CB0ACAEC66A5ECA104AF7CED0ED0AA2" Guid="{53EAEF9A-34AC-487B-93AE-B0EC613D8066}">
                             <File Id="fil07E3A0D5043B3F48E36CA970CB4AE4F0" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\views\index.html" />
                         </Component>
-                        <Component Id="cmpDC7C0672B1FA524D30140EC75920BC28" Guid="{2AA636D4-77EC-431F-A338-F78DB45825F9}">
+                        <Component Id="cmpDC7C0672B1FA524D30140EC75920BC28" Guid="{3A562CA1-85A1-4DAB-9E2A-F6CF67B58EC4}">
                             <File Id="fil1B34CA41FB5E46AFAE8162CB3358D267" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\views\license.html" />
                         </Component>
-                        <Component Id="cmp7F5B88574260B2BA345790B00EFCBF38" Guid="{608D293C-E1CE-4593-B1D0-710512D512A1}">
+                        <Component Id="cmp7F5B88574260B2BA345790B00EFCBF38" Guid="{2446935B-0BA1-4C25-ADA4-EFA3CC0B09F2}">
                             <File Id="fil0E73D4C160E670145247B443527F9E97" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\views\login.html" />
                         </Component>
-                        <Component Id="cmpD64603205717A70A4745681C1E41DB1B" Guid="{0CA43DB0-9720-4DA9-8E9E-DF8600FDB297}">
+                        <Component Id="cmpD64603205717A70A4745681C1E41DB1B" Guid="{B2FEA3CB-C9FC-405B-8A1D-6EE115CBEE31}">
                             <File Id="fil68A52BAE4358DC1A93D8365F42432ABA" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\views\manual.html" />
                         </Component>
-                        <Component Id="cmpA0A12BF11EFCDE37D4A9782F12BB7F27" Guid="{A01D4274-A82C-4B53-9ADE-E25ADCC2E039}">
+                        <Component Id="cmpA0A12BF11EFCDE37D4A9782F12BB7F27" Guid="{F8FC3651-BB61-495D-8686-DB3E8BD695AE}">
                             <File Id="fil307B0D874186FC328F8F03ABA7661DD5" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\views\new.html" />
                         </Component>
-                        <Component Id="cmp432EF04E6BD2A80563E28D13A202B585" Guid="{D945991C-F97D-412F-939B-FA00585F5FEA}">
+                        <Component Id="cmp432EF04E6BD2A80563E28D13A202B585" Guid="{54D06F03-71F4-4BC8-B0B2-5148CA64764F}">
                             <File Id="fil06479E96EB6461C0916C38E6006A52B2" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\views\noNetWork.html" />
                         </Component>
-                        <Component Id="cmp4B1D8FBA001D2631730AE3C379C014E9" Guid="{0C879AD2-5CC1-42C3-8239-B0CFA3847A12}">
+                        <Component Id="cmp4B1D8FBA001D2631730AE3C379C014E9" Guid="{3B1DC3D1-AFFB-407D-8182-16B2AAB251E2}">
                             <File Id="fil766619710125E3A4F3F7862AE9C425F2" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\views\notAllow.html" />
                         </Component>
-                        <Component Id="cmpE96796958C84A98A11D721F246A0B707" Guid="{AC6033F8-AC89-4C2E-86A6-8F9C31CD0E03}">
+                        <Component Id="cmpE96796958C84A98A11D721F246A0B707" Guid="{961D95B5-B281-44EB-B85D-51DC787DFDA5}">
                             <File Id="filA1389E55D9598A8019EFB805C1D83ACC" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\views\oaReg.html" />
                         </Component>
-                        <Component Id="cmpBC5791EE54FEA8A3F38CCF1516650023" Guid="{288E370B-F940-4436-9EBC-59473B83E315}">
+                        <Component Id="cmpBC5791EE54FEA8A3F38CCF1516650023" Guid="{B95B0F35-3656-4E75-A179-63FBF8628A2D}">
                             <File Id="filB2AB34D59B0BE55385BCA5D89CD51CE1" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\views\register.html" />
                         </Component>
-                        <Component Id="cmp36011AE247F4176307C65F7A7600EE78" Guid="{B4EAEA5E-496C-4F80-856A-05F1639F2A5E}">
+                        <Component Id="cmp36011AE247F4176307C65F7A7600EE78" Guid="{AB380961-D096-4F29-A78E-D3902BC9F3C0}">
                             <File Id="filC08458D28C38F5A05D9288064F96990D" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\views\setFolder.html" />
                         </Component>
-                        <Component Id="cmp380F1268F80D632348DFEC3F42C2B905" Guid="{2E5C71A0-994A-4F9B-8D74-320F42134B86}">
+                        <Component Id="cmp380F1268F80D632348DFEC3F42C2B905" Guid="{384C481D-A519-4926-B1CE-F8F01737D943}">
                             <File Id="filC13AAE048748BB8E1F032597A6671774" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\views\shutdown.html" />
                         </Component>
-                        <Component Id="cmp5ED3A88603B291462C3108540722BE94" Guid="{604C684F-B43F-44CD-91A0-2ECB327E804F}">
+                        <Component Id="cmp5ED3A88603B291462C3108540722BE94" Guid="{CAB220EF-C752-4E56-BCFA-2A8C254DA5E0}">
                             <File Id="filB598EDC16896B84B1FE5D61ADADBAA7D" KeyPath="yes" Source="$(env.WinFlyHeat)\src\pCloud\views\test.html" />
                         </Component>
                     </Directory>
                 </Directory>
                 <Directory Id="dir3C8BD45F9D24E93324FAD32199CD5DAC" Name="resource">
                     <Directory Id="dirE1C8B4897ECB417B0C7C650ED28659D7" Name="sound">
-                        <Component Id="cmp3A7F5DC092132A3C3593C351D769183F" Guid="{6928D0C6-1326-4F87-8CA4-ECAF834B9E0D}">
+                        <Component Id="cmp3A7F5DC092132A3C3593C351D769183F" Guid="{FEA6FC65-EEB0-40AA-A878-D20547B44EEE}">
                             <File Id="fil505B1A36DF40C9F7985AE2875B4120B5" KeyPath="yes" Source="$(env.WinFlyHeat)\src\resource\sound\complete.wav" />
                         </Component>
-                        <Component Id="cmp484F6E5D6678595FACD4B1A99F0DAFD8" Guid="{40A0D977-7B34-4003-8B7E-E0AB430BF203}">
+                        <Component Id="cmp484F6E5D6678595FACD4B1A99F0DAFD8" Guid="{6A80E8F9-75FF-4A4C-876E-305620D46139}">
                             <File Id="fil07929D1ED4A5B71DFAC77EC82EBC770B" KeyPath="yes" Source="$(env.WinFlyHeat)\src\resource\sound\new.wav" />
                         </Component>
                     </Directory>
                 </Directory>
             </Directory>
             <Directory Id="dirA04870E1DA4894047D66D907A12F7C5A" Name="updates">
-                <Component Id="cmp0C442986E96A5A87067A2B19D2B0C555" Guid="{7650F43B-2464-4045-9DEB-6C15B75CF6A8}">
+                <Component Id="cmp0C442986E96A5A87067A2B19D2B0C555" Guid="{DB48D0BD-2329-4063-AC4A-483EBE7E3D6B}">
                     <File Id="fil0A08F05956BBCA963145EE16DE266162" KeyPath="yes" Source="$(env.WinFlyHeat)\updates\mkdirp.js" />
                 </Component>
-                <Component Id="cmpA179333C9C2E78473895F6A373944B6B" Guid="{BA0C5725-55D5-4160-B357-5C049AFC3F22}">
+                <Component Id="cmpA179333C9C2E78473895F6A373944B6B" Guid="{A4BB1690-F381-4F88-B2CF-A35F4B7B422D}">
                     <File Id="fil316C5F41EB132A37DEF5941944C14734" KeyPath="yes" Source="$(env.WinFlyHeat)\updates\rimraf.js" />
                 </Component>
-                <Component Id="cmpF9488781B28159711F313836AC53B5C7" Guid="{134B04A4-C8B0-4C73-9029-305D31523EA2}">
+                <Component Id="cmpF9488781B28159711F313836AC53B5C7" Guid="{624C1530-70BF-4CD1-B585-B10D5F8BE4E5}">
                     <File Id="filC80CBFE758B68BD81CC8041FA09DC87A" KeyPath="yes" Source="$(env.WinFlyHeat)\updates\update.js" />
                 </Component>
             </Directory>
@@ -524,7 +524,7 @@
             <ComponentRef Id="cmpC401C431A73879FC01E44E0BF52B2E36" />
             <ComponentRef Id="cmpF39EA8487AA387F086F99B571FB63987" />
             <ComponentRef Id="cmp160F35F1F7D999AC2224FE65CB61F855" />
-            <ComponentRef Id="cmpFD7D19E4FF2E5727A162FBE5C4470A72" />
+            <ComponentRef Id="cmp6D97C6BE2DD2E1E9AF36BA5876FFABC0" />
             <ComponentRef Id="cmp660D54EB99EDF830568CB6D88F2C94E1" />
             <ComponentRef Id="cmp73D317DDFDE457CFA6D816009B8A5164" />
             <ComponentRef Id="cmpEDFA293BB2929C80EEEDCEB032F8AB33" />

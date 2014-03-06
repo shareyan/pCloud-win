@@ -5,7 +5,7 @@
   </copyright>
   
   因为使用heat进行批量收割文件，所以文件路径ID、文件名ID不能自定义。下面是对应关系：
-  fil58AAFE67D07498E222632D8E135276FE:\src\Winfly.exe
+  filB4388967085A813D59FDB0B70E4C520D:\src\WinFly.exe
   dir68884791FD0AEB58F6D01383446E6DD4:\src
   dir7B43C7E7647CA8DF49EF442DD1A3A3B8:\src\pCloud\views\
   dirA04870E1DA4894047D66D907A12F7C5A:\updates\
@@ -23,7 +23,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension" >
   <Product Id="{10D12530-EE3D-4F44-A9E6-D864A68DE51F}" Name="WinFly"
            Language="!(loc.ProductLanguage)" Codepage="$(var.codepage)"
-           Version="1.1.4"
+           Version="1.1.7b"
            Manufacturer="shareyan"
            UpgradeCode="ea2fb042-e750-49d5-8616-859c96a0ca45">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine"
@@ -55,7 +55,7 @@
               BinaryKey="WixCA"
               DllEntry="WixShellExec"
               Impersonate="yes" />
-    <Property Id="WixShellExecTarget" Value="[#fil58AAFE67D07498E222632D8E135276FE]" />
+    <Property Id="WixShellExecTarget" Value="[#filB4388967085A813D59FDB0B70E4C520D]" />
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
     <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="!(loc.WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT)" />
     <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOX" Value="1" />
@@ -109,7 +109,7 @@
         <Shortcut Id="PcloudsShortcut"
                   Name="WinFly"
                   Description="The Easiest Way to Share Files and Movies"
-                  Target="[dir68884791FD0AEB58F6D01383446E6DD4]Winfly.exe"
+                  Target="[dir68884791FD0AEB58F6D01383446E6DD4]WinFly.exe"
                   WorkingDirectory="dir68884791FD0AEB58F6D01383446E6DD4"
                   Icon="WinFly32.exe"/>
 
@@ -131,7 +131,7 @@
         <Shortcut Id="DesktopPcloudsShortcut"
                   Directory="DesktopFolder"
                   Name="WinFly"
-                  Target="[dir68884791FD0AEB58F6D01383446E6DD4]Winfly.exe"
+                  Target="[dir68884791FD0AEB58F6D01383446E6DD4]WinFly.exe"
                   WorkingDirectory="dir68884791FD0AEB58F6D01383446E6DD4"
                   Icon="WinFly128.exe"/>
         <RegistryValue Root="HKCU" Key="Software\Microsoft\MyApplicationName" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
