@@ -175,6 +175,44 @@
 			$(document).ready(function(){
 				getname();
 			})
+			
+			//tips
+			var tips = [
+				{
+					title:'使用收藏页面',
+					content:'每次输入地址觉得很烦？使用<a href="http://winfly.shareyan.cn/me">收藏</a>页面吧。只要输入用户名点击go就可以访问了。下次访问直接点击下面的记录就可以了。',
+				},
+				{
+					title:'使用用户名',
+					content:'不要直接输入ip去访问你的电脑。你可以使用你的用户名。网页下面有你的链接，在网页输入就可以访问了。',
+				},
+				{
+					title:'最小化托盘',
+					content:'当无法连接互联网时在局域网内也是可以使用软件的，鼠标移动到软件的托盘图标上就能显示当前的ip和端口了。',
+				},
+				{
+					title:'最小化托盘',
+					content:'忘了自己的用户名？鼠标移动到托盘上,显示出的地址中最后的就是你的用户名',
+				},
+			]
+			
+			//show randoms tips at startup
+			
+			function showTipsOK(){
+				if($('input.showTips').is(':checked')){
+					//set tip flag
+					localStorage.setItem('tipFlag','false');
+				}
+			}
+			
+			function showTips(){
+				var tipNum = parseInt(Math.random()*tips.length);
+				if(localStorage.getItem('tipFlag') == null){
+					//show tips
+					myAlert("这是小提示   关于"+tips[tipNum].title,tips[tipNum].content+"<div class='checkbox'><label><input type='checkbox' class='showTips'>不再提示</label></div>","<button class='btn btn-primary' data-dismiss='modal' onclick='showTipsOK();'>知道了</button>");
+				}
+			}
+			showTips();
 		</script>
 	</body>
 </html>
