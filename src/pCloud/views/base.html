@@ -194,6 +194,27 @@
 					title:'最小化托盘',
 					content:'忘了自己的用户名？鼠标移动到托盘上,显示出的地址中最后的就是你的用户名',
 				},
+				{
+					title:'启动的声音',
+					content:'是不是觉得启动的声音很萌呢，这是从动漫悠哉日常大王里截出来的。喵帕斯',
+				},
+				{
+					title:'启动的声音',
+					content:'当有人访问你的电脑时就会发出声音。所以当电脑音乐莫名其妙的响起，那么你就要注意了。'
+				},
+				{
+					title:'扩散软件',
+					content:'觉得软件不错想要推荐给朋友，可以不用U盘来传安装包。在网页的最下方有下载链接，点击之后就可以直接从你的电脑下载安装包了。'
+				},
+				{
+					title:'一个小秘密',
+					content:'我不会告诉你我们正在开发手机客户端的。'
+				},
+				{
+					title:'你的反馈',
+					content:"对软件有什么建议，欢迎反馈给我们,在网页下面有我们的微信，你也可以在<a href='http://winfly.shareyan.cn/community'>社区</a>里面告诉我们。",
+				}
+				
 			]
 			
 			//show randoms tips at startup
@@ -207,9 +228,11 @@
 			
 			function showTips(){
 				var tipNum = parseInt(Math.random()*tips.length);
-				if(localStorage.getItem('tipFlag') == null){
+				//only show once on each session
+				if(localStorage.getItem('tipFlag') == null && sessionStorage.getItem('tipFlag') == null){
 					//show tips
-					myAlert("这是小提示   关于"+tips[tipNum].title,tips[tipNum].content+"<div class='checkbox'><label><input type='checkbox' class='showTips'>不再提示</label></div>","<button class='btn btn-primary' data-dismiss='modal' onclick='showTipsOK();'>知道了</button>");
+					myAlert("小提示  "+tips[tipNum].title,tips[tipNum].content+"<div class='checkbox'><label><input type='checkbox' class='showTips'>不再提示</label></div>","<button class='btn btn-primary' data-dismiss='modal' onclick='showTipsOK();'>知道了</button>");
+					sessionStorage.setItem('tipFlag','false');
 				}
 			}
 			showTips();
