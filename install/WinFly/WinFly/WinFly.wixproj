@@ -23,7 +23,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
-    <DefineConstants>codepage=936</DefineConstants>
+    <DefineConstants>codepage=936 version=1.1.8.0</DefineConstants>
     <Cultures>zh-cn</Cultures>
     <SuppressValidation>False</SuppressValidation>
     <SuppressIces>ICE48</SuppressIces>

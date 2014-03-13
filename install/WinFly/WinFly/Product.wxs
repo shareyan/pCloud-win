@@ -16,14 +16,16 @@
   外部引用变量源地址：
   !(loc.ProductLanguage)、!(loc.WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT)：本地化wxl文件，eg：zh-CN.wxl,en-US.wxl
   $(var.codepage)：vs2010 解决方案build属性处定义，如果是命令行则在candle后加-dcodepage
+  $(var.version)：vs2010 解决方案build属性处定义，如果是命令行则在candle后加-dversion 用来指定安装包版本
   
+  {10D12530-EE3D-4F44-A9E6-D864A68DE51F}
   注意：使用vs2010编译，需要注释掉 Id为"InstallMyself"的元素所涉及的所有内容：line：42、156-169
 -->
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension" >
-  <Product Id="{10D12530-EE3D-4F44-A9E6-D864A68DE51F}" Name="WinFly"
+  <Product Id="*" Name="WinFly"
            Language="!(loc.ProductLanguage)" Codepage="$(var.codepage)"
-           Version="1.1.7b"
+           Version="$(var.version)"
            Manufacturer="shareyan"
            UpgradeCode="ea2fb042-e750-49d5-8616-859c96a0ca45">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine"
@@ -32,7 +34,7 @@
              Manufacturer='shareyan'
              Languages='!(loc.ProductLanguage)'
              SummaryCodepage='$(var.codepage)'/>
-    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <!--MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." /-->
     <Media Id='1' Cabinet='winfly.cab' EmbedCab='yes' />
     <Media Id='2' />
     <Feature Id="ProductFeature" Title="WinFly" Level="1">
@@ -67,13 +69,19 @@
     <Property Id='NEWINSTALLDIR' Value='C:\'>
       <DirectorySearch Id='DefaultInstallRoot_Search' Path='D:\' Depth='1'/>
     </Property>
+    <Property Id="PREVIOUSVERSIONSINSTALLED" Secure="yes" />
     <CustomAction Id="DirectorySet" Property="TARGETDIR" Value="[NEWINSTALLDIR]" Execute="firstSequence"/>
     <InstallExecuteSequence>
+      <RemoveExistingProducts After="InstallInitialize" />
       <Custom Action='DirectorySet' After="FileCost"/>
     </InstallExecuteSequence>
     <InstallUISequence>
       <Custom Action="DirectorySet" After="FileCost"/>
     </InstallUISequence>
+    <!-- 安装包升级功能-->
+    <Upgrade Id="ea2fb042-e750-49d5-8616-859c96a0ca45">
+      <UpgradeVersion  OnlyDetect="no" Minimum="1.1.0.0" Maximum="$(var.version)" Property="PREVIOUSVERSIONSINSTALLED" IncludeMinimum="yes" IncludeMaximum="no" />
+    </Upgrade>
   </Product>
 
   <!--设置安装路径,开始菜单路径,桌面快捷方式路径-->
@@ -168,4 +176,18 @@
       </DirectorySearch>
     </Property>
   </Fragment>
+
+  <!--Fragment>
+    <Property Id='FILEEXISTS2'>
+      <DirectorySearch Id='DirSearch' Path='dir82B5FD9E30811E004FEEC689A847D1B1' Depth='0'>
+        <FileSearch Id='FileSearch2' Name='key'/>
+      </DirectorySearch>
+    </Property>
+    <Property Id='FILEEXISTS3'>
+      <DirectorySearch Id='DirSearch' Path='dir82B5FD9E30811E004FEEC689A847D1B1' Depth='0'>
+        <FileSearch Id='FileSearch3' Name='db'/>
+      </DirectorySearch>
+    </Property>
+  </Fragment-->
+  
 </Wix>

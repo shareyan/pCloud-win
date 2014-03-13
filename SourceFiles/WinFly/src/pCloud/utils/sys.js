@@ -69,7 +69,15 @@ function post(myurl,data,cb) {
 				data += chunk;
 			});
 			res.on('end',function(){
-					cb(JSON.parse(data));
+				try{
+					var info = JSON.parse(data);
+				}catch(e){
+					var info = {
+						message:'Error',
+						reason:e,
+					}
+				}
+				cb(info);
 			})
 		});
 	}catch(e){
@@ -119,7 +127,15 @@ function httpsPost(myurl,data,cb) {
 				data += chunk;
 			});
 			res.on('end',function(){
-					cb(JSON.parse(data));
+				try{
+					var info = JSON.parse(data);
+				}catch(e){
+					var info = {
+						message:'Error',
+						reason:e,
+					}
+				}
+				cb(info);
 			})
 		});
 	}catch(e){
